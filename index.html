@@ -104,6 +104,18 @@
         .subscribe-form button:hover {
             background-color: #a98d6d;
         }
+        #formSuccessMessage {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            background-color: rgba(191, 161, 129, 0.1);
+            border-left: 4px solid var(--solis-primary-gold);
+        }
+        #formSuccessMessage p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--solis-text-dark);
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -113,11 +125,43 @@
         <div class="launch-tease">
             <h2>Your Invitation Awaits.</h2>
             <p class="subscribe-prompt">The definitive collection of the world's finest properties is launching soon. Be the first to know when we go live.</p>
-            <form class="subscribe-form" action="">
+            <form class="subscribe-form" id="subscribeForm">
                 <input type="email" name="email" placeholder="Enter your email address" required>
                 <button type="submit">Notify Me</button>
             </form>
+            <div id="formSuccessMessage" style="display: none;">
+                <p>Thank you! You're on the list.</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby-8I9oRUM6eN3QnJJEZrjCXUchgj8RuLPpDHnkNz1Vir83VvStqIq7TqmZpITZde6uDA/exec';
+        const form = document.getElementById('subscribeForm');
+        const successMessage = document.getElementById('formSuccessMessage');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        successMessage.style.display = 'block';
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Notify Me';
+                    alert('An error occurred while subscribing. Please try again.');
+                });
+        });
+    </script>
 </body>
 </html> 
