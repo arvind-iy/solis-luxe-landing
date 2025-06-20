@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solis - Curated Luxury</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --solis-primary-gold: #BFA181;
+            --solis-text-dark: #343a40;
+            --solis-bg-light: #F8F5F2;
+            --solis-card-bg: #FFFFFF;
+        }
         body {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
-            background-color: #ffffff; /* A clean white background */
-            font-family: 'Garamond', 'Times New Roman', serif; /* An elegant font */
-            color: #333;
+            background-color: var(--solis-bg-light);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--solis-text-dark);
         }
         .container {
             text-align: center;
+            padding: 2rem;
         }
         img {
-            max-width: 400px; /* Adjust size as needed */
-            margin-bottom: 20px;
+            max-width: 350px; /* A slightly more refined size */
+            margin-bottom: 2rem;
         }
         h1 {
-            font-size: 2.5em;
-            font-weight: normal;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin: 0;
+            color: var(--solis-primary-gold);
+        }
+        p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="logos/Full Logo Flat.png" alt="Solis Logo">
-        <h1>Solis - Curated Luxury</h1>
+        <h1>Solis</h1>
+        <p>Curated Luxury</p>
     </div>
 </body>
 </html> 
