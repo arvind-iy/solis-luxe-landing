@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solis Curated Luxury — Singapore Family Itinerary, March 2026. Mainland · Genting Dream Cruise · Sentosa.">
+  <meta property="og:title" content="Solis Curated Luxury — Singapore 2026">
+  <meta property="og:description" content="A curated 10-night family itinerary across Singapore, the Genting Dream cruise and Sentosa.">
+  <meta property="og:type" content="website">
+  <title>Solis Curated Luxury — Singapore March 2026</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:#0D0B08;}
+    .sa{background:#0D0B08;color:#F0E6D4;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.6;min-height:100vh;}
+    .sa-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid rgba(201,160,122,0.18);}
+    .sa-logo{display:flex;align-items:center;gap:14px;}
+    .sa-logo-txt h1{font-family:Georgia,serif;font-size:20px;font-weight:normal;color:#C9A07A;letter-spacing:9px;line-height:1;}
+    .sa-logo-txt p{font-size:8px;letter-spacing:4px;color:#7A6A56;margin-top:5px;}
+    .sa-badge{font-size:9px;letter-spacing:3px;color:#7A6A56;border:1px solid rgba(201,160,122,0.25);padding:6px 14px;}
+    .sa-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(201,160,122,0.12);}
+    .sa-stat{padding:14px 22px;border-right:1px solid rgba(201,160,122,0.08);}
+    .sa-stat:last-child{border-right:none;}
+    .sa-slbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#5A4A38;margin-bottom:4px;}
+    .sa-sval{font-family:Georgia,serif;font-size:13px;color:#C9A07A;}
+    .sa-segs{display:flex;padding:0 24px;border-bottom:1px solid rgba(201,160,122,0.12);overflow-x:auto;}
+    .sa-sbtn{background:none;border:none;border-bottom:2px solid transparent;color:#5A4A38;padding:13px 22px;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:color 0.2s;white-space:nowrap;flex-shrink:0;}
+    .sa-sbtn.on{color:#C9A07A;border-bottom-color:#C9A07A;}
+    .sa-body{display:grid;grid-template-columns:190px 1fr;}
+    .sa-daynav{border-right:1px solid rgba(201,160,122,0.1);padding:16px 0;}
+    .sa-dnbtn{display:block;width:100%;background:none;border:none;border-left:2px solid transparent;text-align:left;padding:11px 18px;cursor:pointer;color:#5A4A38;font-family:inherit;}
+    .sa-dnbtn.on{color:#C9A07A;border-left-color:#C9A07A;background:rgba(201,160,122,0.04);}
+    .sa-dnbtn .dn{font-family:Georgia,serif;font-size:15px;display:block;margin-bottom:1px;}
+    .sa-dnbtn .dd{font-size:8px;letter-spacing:1px;color:#4A3A28;}
+    .sa-dnbtn.on .dd{color:#9A7B5A;}
+    .sa-panel{display:none;padding:22px 26px;gap:22px;}
+    .sa-panel.on{display:grid;grid-template-columns:1fr 300px;}
+    .sa-seg-wrap{display:none;}
+    .sa-seg-wrap.on{display:block;}
+    .sa-day-hdr{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(201,160,122,0.12);}
+    .sa-day-hdr h2{font-family:Georgia,serif;font-size:18px;font-weight:normal;color:#E8D5BE;}
+    .sa-day-hdr p{font-size:9px;letter-spacing:2px;color:#7A6A56;margin-top:3px;text-transform:uppercase;}
+    .sa-section-lbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#C9A07A;margin:16px 0 10px 0;padding-bottom:5px;border-bottom:1px solid rgba(201,160,122,0.15);}
+    .sa-tl-item{display:flex;gap:14px;padding-bottom:18px;position:relative;}
+    .sa-tl-item:not(:last-child)::after{content:'';position:absolute;left:64px;top:20px;bottom:0;width:1px;background:rgba(201,160,122,0.1);}
+    .sa-ttime{min-width:44px;font-size:8px;letter-spacing:1px;color:#5A4A38;text-align:right;padding-top:5px;flex-shrink:0;}
+    .sa-tdot{width:7px;height:7px;border-radius:50%;background:transparent;border:1px solid rgba(201,160,122,0.5);margin-top:6px;flex-shrink:0;}
+    .sa-tdot.g{background:#C9A07A;border-color:#C9A07A;}
+    .sa-act-ttl{font-family:Georgia,serif;font-size:14px;color:#DFD0BC;margin-bottom:3px;}
+    .sa-act-desc{font-size:11px;color:#7A6A56;line-height:1.65;}
+    .sa-mc-lbl{display:inline-block;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#C9A07A;border:1px solid rgba(201,160,122,0.45);padding:2px 7px;margin-left:8px;vertical-align:middle;}
+    .sa-opt-lbl{display:inline-block;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#7A6A56;border:1px solid rgba(100,90,70,0.4);padding:2px 7px;margin-left:8px;vertical-align:middle;}
+    .sa-tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px;}
+    .sa-tag{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#8A7A5A;border:1px solid rgba(201,160,122,0.15);padding:2px 8px;}
+    .sa-map-wrap{border:1px solid rgba(201,160,122,0.18);margin-bottom:14px;overflow:hidden;}
+    .sa-map-wrap iframe{display:block;width:100%;height:210px;border:none;}
+    .sa-mc-card{border:1px solid rgba(201,160,122,0.35);padding:14px;background:rgba(201,160,122,0.03);margin-bottom:14px;}
+    .sa-mc-card-ttl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#C9A07A;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .sa-mc-step{font-size:10px;color:#8A7A6A;padding:5px 0;border-bottom:1px solid rgba(201,160,122,0.07);display:flex;gap:8px;align-items:flex-start;}
+    .sa-mc-step:last-child{border-bottom:none;}
+    .sa-mc-num{color:#C9A07A;font-family:Georgia,serif;font-size:11px;min-width:14px;flex-shrink:0;}
+    .sa-tips{border:1px solid rgba(201,160,122,0.1);padding:14px;}
+    .sa-tips-ttl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#7A6A56;margin-bottom:8px;}
+    .sa-tip{font-size:10px;color:#7A6A56;padding:3px 0 3px 12px;position:relative;border-bottom:1px solid rgba(201,160,122,0.06);}
+    .sa-tip:last-child{border-bottom:none;}
+    .sa-tip::before{content:'·';position:absolute;left:0;color:#C9A07A;font-size:14px;line-height:1.2;}
+    .sa-hl-card{border:1px solid rgba(201,160,122,0.2);padding:12px;margin-bottom:10px;background:rgba(201,160,122,0.02);}
+    .sa-hl-ttl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9A7B5A;margin-bottom:8px;}
+    .sa-hl-item{font-size:10px;color:#7A6A56;padding:3px 0 3px 10px;position:relative;border-bottom:1px solid rgba(201,160,122,0.06);}
+    .sa-hl-item:last-child{border-bottom:none;}
+    .sa-hl-item::before{content:'→';position:absolute;left:0;color:rgba(201,160,122,0.4);font-size:9px;line-height:1.8;}
+    .sa-cruise-body{padding:40px 30px;text-align:center;}
+    .sa-cruise-body h2{font-family:Georgia,serif;font-size:22px;font-weight:normal;color:#C9A07A;margin-bottom:8px;}
+    .sa-cruise-body p{font-size:11px;color:#7A6A56;max-width:400px;margin:0 auto 24px;}
+    .sa-cruise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:0 auto;}
+    .sa-cruise-card{border:1px solid rgba(201,160,122,0.15);padding:16px;text-align:left;}
+    .sa-cc-ttl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#C9A07A;margin-bottom:8px;}
+    .sa-cc-item{font-size:10px;color:#7A6A56;padding:3px 0;border-bottom:1px solid rgba(201,160,122,0.07);}
+    .sa-cc-item:last-child{border-bottom:none;}
+    .sa-log{border-top:1px solid rgba(201,160,122,0.15);padding:26px 28px;}
+    .sa-log-ttl{font-family:Georgia,serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A07A;margin-bottom:18px;}
+    .sa-log-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .sa-lc{border:1px solid rgba(201,160,122,0.1);padding:15px;}
+    .sa-lc-ttl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9A7B5A;margin-bottom:10px;}
+    .sa-li{font-size:10px;color:#7A6A56;padding:4px 0;border-bottom:1px solid rgba(201,160,122,0.07);}
+    .sa-li:last-child{border-bottom:none;}
+    .sa-li strong{color:#A89070;font-weight:normal;}
+    .sa-ft{border-top:1px solid rgba(201,160,122,0.08);padding:12px 28px;display:flex;justify-content:space-between;align-items:center;}
+    .sa-ft p{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#3A2A1A;}
+
+    /* ── Mobile responsive ── */
+    @media(max-width:768px){
+      .sa-hdr{padding:14px 16px;flex-wrap:wrap;gap:10px;}
+      .sa-badge{display:none;}
+      .sa-logo-txt h1{font-size:16px;letter-spacing:6px;}
+      .sa-stats{grid-template-columns:repeat(2,1fr);}
+      .sa-stat{padding:10px 14px;}
+      .sa-stat:nth-child(2){border-right:none;}
+      .sa-segs{padding:0 12px;}
+      .sa-sbtn{padding:12px 14px;font-size:8px;letter-spacing:1.5px;}
+      .sa-body{grid-template-columns:1fr;}
+      .sa-daynav{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid rgba(201,160,122,0.1);padding:0;gap:0;}
+      .sa-dnbtn{border-left:none;border-bottom:2px solid transparent;padding:10px 14px;white-space:nowrap;flex-shrink:0;}
+      .sa-dnbtn.on{border-left:none;border-bottom-color:#C9A07A;background:rgba(201,160,122,0.04);}
+      .sa-dnbtn .dn{font-size:13px;}
+      .sa-panel.on{display:block;padding:16px;}
+      .sa-panel.on > div + div{margin-top:20px;}
+      .sa-map-wrap iframe{height:180px;}
+      .sa-cruise-grid{grid-template-columns:1fr;}
+      .sa-log-grid{grid-template-columns:1fr;}
+      .sa-log{padding:20px 16px;}
+      .sa-ft{padding:12px 16px;flex-direction:column;gap:6px;text-align:center;}
+      .sa-tl-item:not(:last-child)::after{left:58px;}
+    }
+    @media(max-width:480px){
+      .sa-stats{grid-template-columns:1fr 1fr;}
+      .sa-stat:nth-child(3){border-right:1px solid rgba(201,160,122,0.08);}
+      .sa-stat:nth-child(4){border-right:none;}
+      .sa-day-hdr h2{font-size:15px;}
+    }
+  </style>
+</head>
+<body>
+<div class="sa">
+
+  <div class="sa-hdr">
+    <div class="sa-logo">
+      <svg width="44" height="44" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="27" fill="none" stroke="#C9A07A" stroke-width="0.8"/>
+        <g transform="translate(30,30)" fill="#C9A07A">
+          <path d="M0,-25 L3,-11 L0,-6 L-3,-11 Z"/>
+          <path d="M0,25 L3,11 L0,6 L-3,11 Z"/>
+          <path d="M-25,0 L-11,3 L-6,0 L-11,-3 Z"/>
+          <path d="M25,0 L11,3 L6,0 L11,-3 Z"/>
+          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(45)"/>
+          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(-45)"/>
+          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(135)"/>
+          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(-135)"/>
+          <circle r="5.5" opacity="0.4"/><circle r="3"/>
+        </g>
+      </svg>
+      <div class="sa-logo-txt"><h1>SOLIS</h1><p>· CURATED LUXURY ·</p></div>
+    </div>
+    <div class="sa-badge">SINGAPORE · MARCH 2026</div>
+  </div>
+
+  <div class="sa-stats">
+    <div class="sa-stat"><div class="sa-slbl">Travel Dates</div><div class="sa-sval">21 – 30 March</div></div>
+    <div class="sa-stat"><div class="sa-slbl">Total Nights</div><div class="sa-sval">9 Nights</div></div>
+    <div class="sa-stat"><div class="sa-slbl">Party</div><div class="sa-sval">2 Adults · 2 Teens</div></div>
+    <div class="sa-stat"><div class="sa-slbl">Segments</div><div class="sa-sval">Mainland · Cruise · Sentosa</div></div>
+  </div>
+
+  <div class="sa-segs">
+    <button class="sa-sbtn on" onclick="showSeg('mainland',this)">Mainland Singapore</button>
+    <button class="sa-sbtn" onclick="showSeg('cruise',this)">Genting Dream Cruise</button>
+    <button class="sa-sbtn" onclick="showSeg('sentosa',this)">Sentosa</button>
+  </div>
+
+  <!-- ═══════════════ MAINLAND ═══════════════ -->
+  <div id="seg-mainland" class="sa-seg-wrap on">
+    <div class="sa-body">
+      <div class="sa-daynav">
+        <button class="sa-dnbtn on" onclick="showDay('ml',1,this,'Little India Singapore')"><span class="dn">Day 1</span><span class="dd">Sat, 21 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('ml',2,this,'Marina Bay Singapore')"><span class="dn">Day 2</span><span class="dd">Sun, 22 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('ml',3,this,'Singapore Zoo Mandai')"><span class="dn">Day 3</span><span class="dd">Mon, 23 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('ml',4,this,'Fort Canning Park Singapore')"><span class="dn">Day 4</span><span class="dd">Tue, 24 Mar</span></button>
+      </div>
+      <div>
+
+        <!-- DAY 1 -->
+        <div id="ml-d1" class="sa-panel on">
+          <div>
+            <div class="sa-day-hdr">
+              <h2>Little India &amp; Kampong Glam</h2>
+              <p>Saturday · 21 March · V Hotel Lavender</p>
+            </div>
+            <div class="sa-section-lbl">Morning — Little India</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">9 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">MTR — South Indian Breakfast</div><div class="sa-act-desc">Start the day at MTR (Mavalli Tiffin Rooms) on Serangoon Road — a legendary South Indian institution famous for its masala dosa, idli and filter coffee. Arrive early; tables fill up fast on weekends.</div><div class="sa-tag-row"><span class="sa-tag">Food</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">10 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Sri Veeramakaliamman Temple</div><div class="sa-act-desc">Free entry. One of Singapore's most vibrant Hindu temples, dedicated to Goddess Kali. The towering gopuram is richly carved and quite spectacular. Remove footwear before entering.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">10:30 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">House of Tan Teng Niah</div><div class="sa-act-desc">A short walk away — the last surviving Chinese villa in Little India, painted in dazzling candy-bright colours. One of Singapore's most photographed heritage buildings. Great family photo stop.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">11 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Indian Heritage Centre</div><div class="sa-act-desc">Campbell Lane. A beautifully designed museum tracing the journey of Indian communities to Southeast Asia. Interactive exhibits, textiles, trade history and cultural artefacts. Allow 45–60 mins. Tickets ~S$8 adults.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">12:30 PM</div><div class="sa-tdot"></div>
+              <div><div class="sa-act-ttl">Lunch — Shivam Restaurant</div><div class="sa-act-desc">Lovely vegetarian restaurant next to Mustafa Centre, serving Gujarati thali, North Indian, Chinese and Mexican cuisine.</div><div class="sa-tag-row"><span class="sa-tag">Food</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">2 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Mustafa Centre — Shopping</div><div class="sa-act-desc">The legendary 24-hour department store of Little India. Electronics, perfumes, watches, spices, gold jewellery, saris and everything else — all under one roof at competitive prices. A uniquely Singapore experience. Allow 1–1.5 hrs.</div><div class="sa-tag-row"><span class="sa-tag">Shopping</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">3:30 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Little India Arcade — Souvenirs</div><div class="sa-act-desc">48 Serangoon Road. A heritage shophouse arcade bursting with traditional Indian goods — silk textiles, brass idols, flower garlands, incense and hand-crafted jewellery. Perfect for picking up authentic souvenirs.</div><div class="sa-tag-row"><span class="sa-tag">Shopping</span></div></div>
+            </div>
+            <div class="sa-section-lbl">Evening — Kampong Glam</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">5:30 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Sultan Mosque</div><div class="sa-act-desc">Singapore's most iconic mosque, with its striking golden onion dome. Non-Muslims may enter the main hall outside prayer times — modest dress required (robes available at the entrance). The exterior is beautiful at dusk.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">6 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Haji Lane — Evening Stroll</div><div class="sa-act-desc">The narrow pastel-painted street comes alive after dark with indie boutiques, street art and café culture. Perfect for the teens to explore and photograph. Shops open till 10pm. Arab Street alongside has excellent textile and carpet shops.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span><span class="sa-tag">Shopping</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">7:30 PM</div><div class="sa-tdot"></div>
+              <div><div class="sa-act-ttl">Dinner at Kampong Glam</div><div class="sa-act-desc">Zamzam Restaurant (authentic Malay-Muslim, est. 1908, on North Bridge Road) is a local institution. Alternatively, the Arab Street strip has Turkish, Lebanese and Middle Eastern options to suit all tastes.</div><div class="sa-tag-row"><span class="sa-tag">Food</span></div></div>
+            </div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Little+India+Singapore&output=embed&z=15" loading="lazy" title="Little India map"></iframe></div>
+            <div class="sa-hl-card">
+              <div class="sa-hl-ttl">Day 1 Highlights</div>
+              <div class="sa-hl-item">MTR — legendary South Indian breakfast</div>
+              <div class="sa-hl-item">Sri Veeramakaliamman Temple</div>
+              <div class="sa-hl-item">House of Tan Teng Niah — heritage villa</div>
+              <div class="sa-hl-item">Indian Heritage Centre</div>
+              <div class="sa-hl-item">Shivam Restaurant — lunch</div>
+              <div class="sa-hl-item">Mustafa Centre — electronics &amp; perfumes</div>
+              <div class="sa-hl-item">Little India Arcade — souvenirs</div>
+              <div class="sa-hl-item">Sultan Mosque &amp; Haji Lane</div>
+            </div>
+            <div class="sa-tips">
+              <div class="sa-tips-ttl">Day 1 Tips</div>
+              <div class="sa-tip">Both Little India and Kampong Glam are walkable from V Lavender</div>
+              <div class="sa-tip">Mustafa: easiest entry from Syed Alwi Road</div>
+              <div class="sa-tip">Wear comfortable shoes — a lot of ground to cover today</div>
+              <div class="sa-tip">Haji Lane is most vibrant after 6pm on weekends</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div id="ml-d2" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr">
+              <h2>Marina Bay — Full Immersion</h2>
+              <p>Sunday · 22 March · Mastercard Day <span class="sa-mc-lbl">MC Offers</span></p>
+            </div>
+            <div class="sa-section-lbl">Morning</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">9 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Merlion Park</div><div class="sa-act-desc">Take MRT to Bayfront. Start at the iconic Merlion statue on the waterfront — free, and the backdrop of MBS across the water is Singapore's most photographed view. Walk the promenade; the morning light is superb here before crowds arrive.</div><div class="sa-tag-row"><span class="sa-tag">Sightseeing</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">10 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Sands Lifestyle Membership Registration <span class="sa-mc-lbl">MC Essential</span></div><div class="sa-act-desc">Head to Marina Bay Sands, toward The Shoppes B1 Sampan Ride area and find the Sands Lifestyle Counter. Register your Mastercard for dining, spa and retail benefits. Takes 10 mins. Open 10am–11pm. Book your attraction tickets from the Sands Lifestyle Membership app.</div><div class="sa-tag-row"><span class="sa-tag">Mastercard</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">10:30 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">ArtScience Museum <span class="sa-mc-lbl">MC Offer</span></div><div class="sa-act-desc">6 Bayfront Ave. Present your Mastercard at the ticketing counter for the offer. The permanent teamLab Future World exhibition is the centrepiece — fully immersive digital art rooms that genuinely stun all ages. The lotus-shaped building itself is iconic. Allow 2–2.5 hrs.</div><div class="sa-tag-row"><span class="sa-tag">Culture</span><span class="sa-tag">Mastercard</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">1:30 PM</div><div class="sa-tdot"></div>
+              <div><div class="sa-act-ttl">Sampan Ride &amp; Digital Light Canvas <span class="sa-opt-lbl">Optional</span></div><div class="sa-act-desc">While in The Shoppes Level B1, you can take the Sampan boat ride through the canal — a fun 10-min gondola experience. The adjacent teamLab Digital Light Canvas is a free, stunning large-scale interactive art installation you simply walk through.</div><div class="sa-tag-row"><span class="sa-tag">Activity</span><span class="sa-tag">Optional</span></div></div>
+            </div>
+            <div class="sa-section-lbl">Afternoon — Gardens by the Bay</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">2:30 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Cloud Forest</div><div class="sa-act-desc">18 Marina Gardens Drive. A 35m indoor mountain wrapped in lush greenery with a dramatic waterfall at its core. Elevator to the top, then walkways spiral down through mist and rare highland plants. Currently features a Jurassic World themed experience. Allow 1–1.5 hrs.</div><div class="sa-tag-row"><span class="sa-tag">Nature</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">4 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Flower Dome</div><div class="sa-act-desc">The world's largest glass greenhouse — cool Mediterranean and semi-arid plant biomes from across the globe. Beautifully curated seasonal floral displays. Buy the Cloud Forest + Flower Dome combo ticket for best value.</div><div class="sa-tag-row"><span class="sa-tag">Nature</span></div></div>
+            </div>
+            <div class="sa-section-lbl">Evening — Sunset &amp; Dinner</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">5:30 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Observation Deck — Sunset <span class="sa-mc-lbl">MC Offer</span></div><div class="sa-act-desc">Tower 3, Level 57, Marina Bay Sands. Take the dedicated lift from the Tower 3 hotel lobby. Present Mastercard at the ticketing desk. Arrive at 5:30–6pm to watch the city turn gold at sunset — the panorama of Gardens by the Bay, the Straits of Malacca and the full skyline is unmatched. Open until 10pm.</div><div class="sa-tag-row"><span class="sa-tag">Views</span><span class="sa-tag">Mastercard</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">7:30 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Dinner — Ce La Vi</div><div class="sa-act-desc">Level 57, Tower 3, Marina Bay Sands — immediately after the Observation Deck. Ce La Vi is the signature rooftop restaurant and skybar at MBS. Contemporary Asian cuisine with sweeping 360° views. Dress smart-casual. Reservations strongly recommended. Mains S$45–80 per person.</div><div class="sa-tag-row"><span class="sa-tag">Dining</span><span class="sa-tag">Signature</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">8:45 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Garden Rhapsody — Supertree Light Show <span class="sa-opt-lbl">If energy allows</span></div><div class="sa-act-desc">Free. Shows nightly at 7:45pm and 8:45pm at the Supertree Grove. A short walk from MBS. The 8:45pm show works perfectly after Ce La Vi dinner. Lie on the grass beneath the illuminated Supertrees as music and light play overhead.</div><div class="sa-tag-row"><span class="sa-tag">Free</span><span class="sa-tag">Night Show</span></div></div>
+            </div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Marina+Bay+Sands+Singapore&output=embed&z=15" loading="lazy" title="Marina Bay map"></iframe></div>
+            <div class="sa-mc-card">
+              <div class="sa-mc-card-ttl">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="12" r="7" fill="#C9A07A" opacity="0.5"/><circle cx="16" cy="12" r="7" fill="#C9A07A" opacity="0.8"/></svg>
+                Sands Lifestyle — How to Register
+              </div>
+              <div class="sa-mc-step"><span class="sa-mc-num">1</span><span>Head to The Shoppes at MBS — navigate to Level B1 near the Sampan Ride</span></div>
+              <div class="sa-mc-step"><span class="sa-mc-num">2</span><span>Find the Sands Lifestyle Counter adjacent to the Sampan Ride boarding area</span></div>
+              <div class="sa-mc-step"><span class="sa-mc-num">3</span><span>Counter open 10am–11pm daily</span></div>
+              <div class="sa-mc-step"><span class="sa-mc-num">4</span><span>Present Mastercard + passport. Processed in ~10 mins</span></div>
+              <div class="sa-mc-step"><span class="sa-mc-num">5</span><span>Download Sands Lifestyle app to book tickets &amp; redeem benefits</span></div>
+              <div class="sa-mc-step"><span class="sa-mc-num">★</span><span>Bring all your Mastercards — each may qualify for a separate tier</span></div>
+            </div>
+            <div class="sa-tips">
+              <div class="sa-tips-ttl">Day 2 Tips</div>
+              <div class="sa-tip">Book Ce La Vi dinner in advance — rooftop tables fill up weeks ahead</div>
+              <div class="sa-tip">Sampan ride is ticketed separately at The Shoppes Level B1 counter</div>
+              <div class="sa-tip">Observation Deck: Tower 3 entrance only — not Tower 1 or 2</div>
+              <div class="sa-tip">Garden Rhapsody is free — the 8:45pm show pairs perfectly with Ce La Vi dinner</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div id="ml-d3" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr">
+              <h2>Zoo · National Museum · Orchard · Clarke Quay</h2>
+              <p>Monday · 23 March · City-Wide Exploration</p>
+            </div>
+            <div class="sa-section-lbl">Morning</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">8:30 AM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Singapore Zoo</div><div class="sa-act-desc">80 Mandai Lake Road. One of the world's best open-concept zoos — no cages, just natural landscapes and moated enclosures. Must-sees: the giant pandas KaiKai &amp; JiaJia, Fragile Forest biodome and the Orangutan habitat. Take a Grab taxi (~30 mins from hotel). Allow 3 hrs. Open from 8:30am.</div><div class="sa-tag-row"><span class="sa-tag">Nature</span><span class="sa-tag">Family</span></div></div>
+            </div>
+            <div class="sa-section-lbl">Afternoon</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">12:30 PM</div><div class="sa-tdot"></div>
+              <div><div class="sa-act-ttl">Lunch — Mandai or Orchard</div><div class="sa-act-desc">Quick lunch at the zoo's food court before heading back to town, or grab a meal near Orchard Road on arrival. Take MRT from Mandai — bus to Khatib MRT (NS line) then south to Orchard (~40 mins total).</div><div class="sa-tag-row"><span class="sa-tag">Food</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">2 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">National Museum of Singapore</div><div class="sa-act-desc">93 Stamford Road. Singapore's oldest museum in a spectacular neoclassical building. The Singapore History Gallery traces the island's story from 14th-century trading post to modern metropolis. ~S$15 for tourists. Allow 1–1.5 hrs.</div><div class="sa-tag-row"><span class="sa-tag">Culture</span><span class="sa-tag">History</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">4 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Orchard Road — Shopping</div><div class="sa-act-desc">Singapore's legendary 2.2km retail boulevard. ION Orchard, Takashimaya, Paragon, 313@somerset and Orchard Central are the headline malls. Great for fashion, luxury brands, tech and F&amp;B. Allow 1.5–2 hrs.</div><div class="sa-tag-row"><span class="sa-tag">Shopping</span></div></div>
+            </div>
+            <div class="sa-section-lbl">Evening</div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">7 PM</div><div class="sa-tdot g"></div>
+              <div><div class="sa-act-ttl">Dinner &amp; Evening — Clarke Quay</div><div class="sa-act-desc">Take MRT or Grab to Clarke Quay (CC/NE line). Singapore's most vibrant riverside dining precinct — colourful restored shophouses along the Singapore River with dozens of restaurants and live music. Try Jumbo Seafood for the legendary chilli crab — book ahead.</div><div class="sa-tag-row"><span class="sa-tag">Dining</span><span class="sa-tag">Nightlife</span></div></div>
+            </div>
+            <div class="sa-tl-item">
+              <div class="sa-ttime">9 PM</div><div class="sa-tdot"></div>
+              <div><div class="sa-act-ttl">River Walk — Boat Quay</div><div class="sa-act-desc">After dinner, stroll the riverside walkway from Clarke Quay to Boat Quay — a 10-min walk along the Singapore River lit beautifully at night with the skyline as a backdrop.</div><div class="sa-tag-row"><span class="sa-tag">Free</span></div></div>
+            </div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Singapore+Zoo+Mandai&output=embed&z=13" loading="lazy" title="Singapore Zoo map"></iframe></div>
+            <div class="sa-hl-card">
+              <div class="sa-hl-ttl">Day 3 Highlights</div>
+              <div class="sa-hl-item">Singapore Zoo — world-class open concept</div>
+              <div class="sa-hl-item">National Museum — Singapore's full story</div>
+              <div class="sa-hl-item">Orchard Road — flagship retail strip</div>
+              <div class="sa-hl-item">Clarke Quay — chilli crab &amp; riverside dining</div>
+              <div class="sa-hl-item">Boat Quay evening river walk</div>
+            </div>
+            <div class="sa-tips">
+              <div class="sa-tips-ttl">Day 3 Tips</div>
+              <div class="sa-tip">Zoo: arrive at 8:30am — animals are most active in the cool morning</div>
+              <div class="sa-tip">Book Jumbo Seafood Clarke Quay in advance — chilli crab is a must-try</div>
+              <div class="sa-tip">National Museum is free on Friday evenings after 6pm</div>
+              <div class="sa-tip">Orchard MRT is one stop from Somerset on the NS line</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div id="ml-d4" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr"><h2>Fort Canning &amp; Board Genting Dream</h2><p>Tuesday · 24 March · Departure Day</p></div>
+            <div class="sa-tl-item"><div class="sa-ttime">9 AM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Fort Canning Park</div><div class="sa-act-desc">Free. A hilltop heritage park in the heart of the city — shaded walks, old colonial gates, spice gardens, cannons and great views. A serene final morning on the mainland. MRT to Dhoby Ghaut, then 10-min walk uphill.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">11 AM</div><div class="sa-tdot"></div><div><div class="sa-act-ttl">Hotel Checkout</div><div class="sa-act-desc">Check out of V Lavender. Store luggage at hotel or carry directly — you'll transfer to the cruise terminal this afternoon. Confirm embarkation time with Genting Cruises.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">12 PM</div><div class="sa-tdot"></div><div><div class="sa-act-ttl">Final Lunch — Maxwell Food Centre</div><div class="sa-act-desc">Singapore's most famous hawker centre in Chinatown. One last truly local meal — Tian Tian Hainanese Chicken Rice is a must. Budget S$8–12 per person for a full meal.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">2:30 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Board Genting Dream Cruise</div><div class="sa-act-desc">Marina Bay Cruise Centre (MBCC), 61 Marina Coastal Drive. Grab taxi ~15 mins. Bring passport + booking confirmation. Note: MBCC is different from Tanah Merah ferry terminal — specify Marina Bay Cruise Centre to your driver.</div></div></div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Fort+Canning+Park+Singapore&output=embed&z=15" loading="lazy" title="Fort Canning map"></iframe></div>
+            <div class="sa-tips"><div class="sa-tips-ttl">Embarkation Tips</div><div class="sa-tip">Specify Marina Bay Cruise Centre — not Tanah Merah — to Grab driver</div><div class="sa-tip">Porters at terminal — tip S$2–3 per bag is appreciated</div><div class="sa-tip">Buy Singapore dollars before boarding — onboard rates less favourable</div><div class="sa-tip">Don't forget items from the hotel safe before checkout</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ CRUISE ═══════════════ -->
+  <div id="seg-cruise" class="sa-seg-wrap">
+    <div class="sa-cruise-body">
+      <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom:16px;">
+        <circle cx="30" cy="30" r="27" fill="none" stroke="rgba(201,160,122,0.3)" stroke-width="0.8"/>
+        <g transform="translate(30,30)" fill="#C9A07A">
+          <path d="M0,-25 L3,-11 L0,-6 L-3,-11 Z"/><path d="M0,25 L3,11 L0,6 L-3,11 Z"/>
+          <path d="M-25,0 L-11,3 L-6,0 L-11,-3 Z"/><path d="M25,0 L11,3 L6,0 L11,-3 Z"/>
+          <circle r="3"/>
+        </g>
+      </svg>
+      <h2>Genting Dream Cruise</h2>
+      <p>24 – 27 March · 3 Nights at Sea · Marina Bay Cruise Centre → Open Waters</p>
+      <div class="sa-cruise-grid">
+        <div class="sa-cruise-card"><div class="sa-cc-ttl">Dining</div><div class="sa-cc-item">World-class international buffets</div><div class="sa-cc-item">Asian specialty restaurants</div><div class="sa-cc-item">À la carte fine dining</div><div class="sa-cc-item">24-hr room service</div></div>
+        <div class="sa-cruise-card"><div class="sa-cc-ttl">Teens' Activities</div><div class="sa-cc-item">Waterslides &amp; pool complex</div><div class="sa-cc-item">Go-kart track on deck</div><div class="sa-cc-item">Arcade &amp; gaming zone</div><div class="sa-cc-item">Live entertainment shows</div></div>
+        <div class="sa-cruise-card"><div class="sa-cc-ttl">Adults' Retreat</div><div class="sa-cc-item">Luxury spa &amp; wellness</div><div class="sa-cc-item">Casino (adults only)</div><div class="sa-cc-item">Sunset cocktail lounge</div><div class="sa-cc-item">Private balcony sea views</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SENTOSA ═══════════════ -->
+  <div id="seg-sentosa" class="sa-seg-wrap">
+    <div class="sa-body">
+      <div class="sa-daynav">
+        <button class="sa-dnbtn on" onclick="showDay('st',7,this,'Shangri-La Rasa Sentosa Singapore')"><span class="dn">Day 7</span><span class="dd">Fri, 27 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('st',8,this,'Singapore Oceanarium Sentosa')"><span class="dn">Day 8</span><span class="dd">Sat, 28 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('st',9,this,'Universal Studios Singapore')"><span class="dn">Day 9</span><span class="dd">Sun, 29 Mar</span></button>
+        <button class="sa-dnbtn" onclick="showDay('st',10,this,'Palawan Beach Sentosa Singapore')"><span class="dn">Day 10</span><span class="dd">Mon, 30 Mar</span></button>
+      </div>
+      <div>
+
+        <!-- SENTOSA DAY 7 -->
+        <div id="st-d7" class="sa-panel on">
+          <div>
+            <div class="sa-day-hdr"><h2>Cruise Returns · Shangri-La Sentosa Arrival</h2><p>Friday · 27 March · Shangri-La Rasa Sentosa</p></div>
+            <div class="sa-tl-item"><div class="sa-ttime">MORN</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Disembark at MBCC</div><div class="sa-act-desc">Disembarkation typically completes by mid-morning. Collect luggage and clear customs. Take a Grab taxi directly to Shangri-La Rasa Sentosa — about 20–25 mins.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">12 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Check In — Shangri-La Rasa Sentosa</div><div class="sa-act-desc">Right on Siloso Beach. The resort's pool terraces step down to the sea — a stunning arrival. Spend the afternoon at the pool or beach to decompress after the cruise.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">7:30 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Sentosa Sensoryscape <span class="sa-mc-lbl">Free</span></div><div class="sa-act-desc">15-min walk or free beach tram. This free outdoor light-and-nature corridor is Avatar-like after dark. Download the imagiNite app beforehand for hidden AR experiences. Best experienced after 7:30pm.</div></div></div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Shangri-La+Rasa+Sentosa+Resort&output=embed&z=15" loading="lazy" title="Shangri-La Sentosa map"></iframe></div>
+            <div class="sa-tips"><div class="sa-tips-ttl">Sentosa Essentials</div><div class="sa-tip">Beach trams and internal buses are entirely free on Sentosa island</div><div class="sa-tip">Small toll applies when entering Sentosa by taxi (~S$2–6)</div><div class="sa-tip">Download imagiNite app for Sensoryscape AR features tonight</div></div>
+          </div>
+        </div>
+
+        <!-- SENTOSA DAY 8 -->
+        <div id="st-d8" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr"><h2>Oceanarium &amp; Adventure Cove Waterpark</h2><p>Saturday · 28 March · Resorts World Sentosa Day</p></div>
+            <div class="sa-tl-item"><div class="sa-ttime">9 AM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Singapore Oceanarium</div><div class="sa-act-desc">Opens 9am. One of the world's largest aquariums. The Open Ocean Habitat panel is enormous — sit and watch sharks, rays and thousands of fish drift past. Arrive early to beat Saturday crowds. Allow 2–2.5 hrs.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">12 PM</div><div class="sa-tdot"></div><div><div class="sa-act-ttl">Lunch at RWS</div><div class="sa-act-desc">Multiple options within Resorts World between the two attractions. Malaysian Hawker food court is a great bet. Allow 45 mins to refuel and reapply sunscreen before the waterpark.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">1 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Adventure Cove Waterpark</div><div class="sa-act-desc">Closes 5pm. Highlights: Riptide Rocket (Asia's first hydro-magnetic coaster), Adventure River lazy float, wave pool and Rainbow Reef snorkelling among tropical fish. Grab lockers immediately on arrival. Reapply SPF50+ every 60 mins.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">5:30 PM</div><div class="sa-tdot"></div><div><div class="sa-act-ttl">Sunset at Central Beach Bazaar</div><div class="sa-act-desc">Food kiosks right on Siloso Beach — grilled corn by the sea. Perfect low-key evening. Optional: Skyline Luge for some extra adrenaline.</div></div></div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Singapore+Oceanarium+Sentosa&output=embed&z=15" loading="lazy" title="Oceanarium map"></iframe></div>
+            <div class="sa-tips"><div class="sa-tips-ttl">Waterpark Tips</div><div class="sa-tip">Book Adventure Cove online — S$5 cheaper, no morning queue</div><div class="sa-tip">Rent locker near the wave pool — most central point</div><div class="sa-tip">Rainbow Reef: check mask seal before entering water</div><div class="sa-tip">Bring water shoes — pool deck gets very hot by afternoon</div></div>
+          </div>
+        </div>
+
+        <!-- SENTOSA DAY 9 -->
+        <div id="st-d9" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr"><h2>Universal Studios &amp; Wings of Time</h2><p>Sunday · 29 March · Full Adventure Day</p></div>
+            <div class="sa-tl-item"><div class="sa-ttime">9:45 AM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Universal Studios Singapore</div><div class="sa-act-desc">Open 10am–8pm. Arrive at gates before opening. Must-dos: Revenge of the Mummy (indoor coaster), Transformers: The Ride (4D), Battlestar Galactica (dual coasters for teens), Jurassic World Raptor Encounter, WaterWorld Live Stunt Show (sit in the soak zone!).</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">6 PM</div><div class="sa-tdot"></div><div><div class="sa-act-ttl">Dinner at RWS or VivoCity</div><div class="sa-act-desc">Head to VivoCity (free Sentosa Express + 5 mins) for a wider range of restaurants, or eat within Resorts World. Budget S$20–35 per person for a sit-down meal.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">7:10 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Wings of Time Fireworks Symphony</div><div class="sa-act-desc">Siloso Beach. Shows at 7:40pm and 8:40pm nightly. Arrive 25 mins before for good seats — first come, first served. A 20-min spectacular: water screens, lasers, fire and fireworks set to music. Singapore's only nightly fireworks show.</div></div></div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Universal+Studios+Singapore&output=embed&z=15" loading="lazy" title="Universal Studios map"></iframe></div>
+            <div class="sa-tips"><div class="sa-tips-ttl">USS Tips</div><div class="sa-tip">Pre-book via Klook — saves ~S$10–15 per person and avoids queues</div><div class="sa-tip">Hit Mummy + Transformers first before queues build after 11am</div><div class="sa-tip">Express Passes worth it on Sundays — can get very busy</div><div class="sa-tip">Wings of Time: 7:40pm show is ideal — cooler air, darker sky</div></div>
+          </div>
+        </div>
+
+        <!-- SENTOSA DAY 10 -->
+        <div id="st-d10" class="sa-panel">
+          <div>
+            <div class="sa-day-hdr"><h2>Palawan Beach &amp; Departure</h2><p>Monday · 30 March · Final Day</p></div>
+            <div class="sa-tl-item"><div class="sa-ttime">MORN</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">Resort Breakfast &amp; Pool</div><div class="sa-act-desc">Leisurely last morning at the Shangri-La's stunning pool terrace. Savour breakfast without any rush — checkout typically at noon.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">10 AM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">The Palawan @ Sentosa</div><div class="sa-act-desc">Beach tram to Palawan Beach. Walk the suspension bridge to the Southernmost Point of Continental Asia — a great photo op. Teens should try HydroDash, the floating water obstacle course just offshore.</div></div></div>
+            <div class="sa-tl-item"><div class="sa-ttime">12 PM</div><div class="sa-tdot g"></div><div><div class="sa-act-ttl">VivoCity → Changi Airport</div><div class="sa-act-desc">Sentosa Express to VivoCity for last-minute shopping and a final lunch on the rooftop. Then Grab or MRT (HarbourFront → Tanah Merah → Changi). Allow 3 hrs before departure. Don't miss Jewel Changi's indoor waterfall if time permits!</div></div></div>
+          </div>
+          <div class="sa-right">
+            <div class="sa-map-wrap"><iframe src="https://maps.google.com/maps?q=Palawan+Beach+Sentosa+Singapore&output=embed&z=15" loading="lazy" title="Palawan Beach map"></iframe></div>
+            <div class="sa-tips"><div class="sa-tips-ttl">Departure Tips</div><div class="sa-tip">Changi Airport is 35–40 mins from Sentosa</div><div class="sa-tip">Jewel Changi (Terminal 1) — 30 mins for the indoor waterfall is worth it</div><div class="sa-tip">EZ-Link card: refund unused balance at any MRT ticket office</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="sa-log">
+    <div class="sa-log-ttl">· Logistics &amp; Essential Information ·</div>
+    <div class="sa-log-grid">
+      <div class="sa-lc">
+        <div class="sa-lc-ttl">Getting Around</div>
+        <div class="sa-li"><strong>MRT:</strong> Buy EZ-Link card at any station — S$10 deposit + S$5 credit</div>
+        <div class="sa-li"><strong>Grab:</strong> Singapore's Uber — cheaper and faster than street taxis</div>
+        <div class="sa-li"><strong>Sentosa:</strong> Free beach trams &amp; buses within the island</div>
+        <div class="sa-li"><strong>Sentosa toll:</strong> ~S$2–6 surcharge entering by cab</div>
+        <div class="sa-li"><strong>Airport MRT:</strong> HarbourFront → Tanah Merah → Changi (~40 min)</div>
+      </div>
+      <div class="sa-lc">
+        <div class="sa-lc-ttl">Pre-Book These</div>
+        <div class="sa-li">Ce La Vi Dinner (Day 2) — book weeks ahead</div>
+        <div class="sa-li">Jumbo Seafood Clarke Quay (Day 3) — book ahead</div>
+        <div class="sa-li">Universal Studios — Klook saves ~S$10–15/pax</div>
+        <div class="sa-li">Adventure Cove Waterpark — online is cheaper</div>
+        <div class="sa-li">Wings of Time — book day before minimum</div>
+        <div class="sa-li">Gardens by the Bay domes — combo ticket at gate</div>
+      </div>
+      <div class="sa-lc">
+        <div class="sa-lc-ttl">Weather &amp; Packing</div>
+        <div class="sa-li">Late March: 30–33°C, high humidity</div>
+        <div class="sa-li">Afternoon showers common — carry a compact umbrella</div>
+        <div class="sa-li">SPF50+ sunscreen — essential for waterpark days</div>
+        <div class="sa-li">Smart-casual attire for Ce La Vi &amp; MBS dining</div>
+        <div class="sa-li">Modest clothing for temple visits (Day 1)</div>
+        <div class="sa-li">Cloud Forest interior is cool — light layer useful</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sa-ft">
+    <p>Solis Curated Luxury · Confidential Client Document</p>
+    <svg width="28" height="28" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="rgba(201,160,122,0.2)" stroke-width="0.8"/><g transform="translate(30,30)" fill="rgba(201,160,122,0.3)"><path d="M0,-20 L2.5,-9 L0,-5 L-2.5,-9 Z"/><path d="M0,20 L2.5,9 L0,5 L-2.5,9 Z"/><path d="M-20,0 L-9,2.5 L-5,0 L-9,-2.5 Z"/><path d="M20,0 L9,2.5 L5,0 L9,-2.5 Z"/><circle r="2.5"/></g></svg>
+    <p>Singapore · March 2026</p>
+  </div>
+
+</div>
+
+<script>
+  function showSeg(id, btn) {
+    document.querySelectorAll('.sa-seg-wrap').forEach(el => el.classList.remove('on'));
+    document.querySelectorAll('.sa-sbtn').forEach(el => el.classList.remove('on'));
+    document.getElementById('seg-' + id).classList.add('on');
+    btn.classList.add('on');
+  }
+  function showDay(seg, num, btn, mapQ) {
+    var prefix = seg + '-d';
+    document.querySelectorAll('[id^="' + prefix + '"]').forEach(el => el.classList.remove('on'));
+    btn.closest('.sa-seg-wrap').querySelectorAll('.sa-dnbtn').forEach(el => el.classList.remove('on'));
+    var panel = document.getElementById(prefix + num);
+    if (panel) panel.classList.add('on');
+    btn.classList.add('on');
+    if (mapQ && panel) {
+      var iframe = panel.querySelector('iframe');
+      if (iframe) iframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(mapQ) + '&output=embed&z=15';
+    }
+  }
+</script>
+</body>
+</html>
