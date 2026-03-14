@@ -128,6 +128,12 @@
       .sa-logo-img{height:36px;}
       .sa-cruise-logo{width:140px;}
     }
+
+    .sa-hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+    .sa-client{font-size:9px;letter-spacing:1.5px;color:#7A6A56;font-style:italic;}
+    .sa-client span{color:#C9A07A;font-style:normal;letter-spacing:2px;}
+    .sa-ft-client{font-family:Georgia,serif;font-size:10px;color:#C9A07A;letter-spacing:2px;margin-top:4px;}
+    @media(max-width:768px){.sa-hdr-right{align-items:flex-start;}.sa-client{font-size:8px;}}
   </style>
 </head>
 <body>
@@ -137,7 +143,10 @@
     <div class="sa-logo">
       <img src="https://solis.luxe/logos/SOLIS%20email%20signature.png" alt="Solis Curated Luxury" class="sa-logo-img">
     </div>
-    <div class="sa-badge">SINGAPORE · MARCH 2026</div>
+    <div class="sa-hdr-right">
+      <div class="sa-client">A Journey Curated for <span>Kalpesh Gala &amp; Family</span></div>
+      <div class="sa-badge">SINGAPORE · MARCH 2026</div>
+    </div>
   </div>
 
   <div class="sa-stats">
@@ -502,7 +511,10 @@
   </div>
 
   <div class="sa-ft">
-    <p>Solis Curated Luxury · Confidential Client Document</p>
+    <div>
+      <p>Solis Curated Luxury · Confidential Client Document</p>
+      <p class="sa-ft-client">Kalpesh Gala &amp; Family</p>
+    </div>
     <img src="https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png" alt="Solis motif" class="sa-ft-motif">
     <p>Singapore · March 2026</p>
   </div>
