@@ -118,6 +118,16 @@
       .sa-stat:nth-child(4){border-right:none;}
       .sa-day-hdr h2{font-size:15px;}
     }
+
+    /* ── Real logo images ── */
+    .sa-logo-img{height:48px;width:auto;display:block;}
+    .sa-logo-txt{display:none;}
+    .sa-cruise-logo{width:180px;height:auto;display:block;margin:0 auto 20px;}
+    .sa-ft-motif{width:36px;height:36px;object-fit:contain;}
+    @media(max-width:768px){
+      .sa-logo-img{height:36px;}
+      .sa-cruise-logo{width:140px;}
+    }
   </style>
 </head>
 <body>
@@ -125,21 +135,7 @@
 
   <div class="sa-hdr">
     <div class="sa-logo">
-      <svg width="44" height="44" viewBox="0 0 60 60">
-        <circle cx="30" cy="30" r="27" fill="none" stroke="#C9A07A" stroke-width="0.8"/>
-        <g transform="translate(30,30)" fill="#C9A07A">
-          <path d="M0,-25 L3,-11 L0,-6 L-3,-11 Z"/>
-          <path d="M0,25 L3,11 L0,6 L-3,11 Z"/>
-          <path d="M-25,0 L-11,3 L-6,0 L-11,-3 Z"/>
-          <path d="M25,0 L11,3 L6,0 L11,-3 Z"/>
-          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(45)"/>
-          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(-45)"/>
-          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(135)"/>
-          <path d="M0,-17 L2,-8 L0,-4 L-2,-8 Z" transform="rotate(-135)"/>
-          <circle r="5.5" opacity="0.4"/><circle r="3"/>
-        </g>
-      </svg>
-      <div class="sa-logo-txt"><h1>SOLIS</h1><p>· CURATED LUXURY ·</p></div>
+      <img src="https://raw.githubusercontent.com/arvind-iy/solis-luxe-landing/main/logos/SOLIS%20email%20signature.png" alt="Solis Curated Luxury" class="sa-logo-img">
     </div>
     <div class="sa-badge">SINGAPORE · MARCH 2026</div>
   </div>
@@ -389,14 +385,7 @@
   <!-- ═══════════════ CRUISE ═══════════════ -->
   <div id="seg-cruise" class="sa-seg-wrap">
     <div class="sa-cruise-body">
-      <svg width="60" height="60" viewBox="0 0 60 60" style="margin-bottom:16px;">
-        <circle cx="30" cy="30" r="27" fill="none" stroke="rgba(201,160,122,0.3)" stroke-width="0.8"/>
-        <g transform="translate(30,30)" fill="#C9A07A">
-          <path d="M0,-25 L3,-11 L0,-6 L-3,-11 Z"/><path d="M0,25 L3,11 L0,6 L-3,11 Z"/>
-          <path d="M-25,0 L-11,3 L-6,0 L-11,-3 Z"/><path d="M25,0 L11,3 L6,0 L11,-3 Z"/>
-          <circle r="3"/>
-        </g>
-      </svg>
+      <img src="https://raw.githubusercontent.com/arvind-iy/solis-luxe-landing/main/logos/Full%20Logo%20Flat.png" alt="Solis Curated Luxury" class="sa-cruise-logo">
       <h2>Genting Dream Cruise</h2>
       <p>24 – 27 March · 3 Nights at Sea · Marina Bay Cruise Centre → Open Waters</p>
       <div class="sa-cruise-grid">
@@ -514,7 +503,7 @@
 
   <div class="sa-ft">
     <p>Solis Curated Luxury · Confidential Client Document</p>
-    <svg width="28" height="28" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="rgba(201,160,122,0.2)" stroke-width="0.8"/><g transform="translate(30,30)" fill="rgba(201,160,122,0.3)"><path d="M0,-20 L2.5,-9 L0,-5 L-2.5,-9 Z"/><path d="M0,20 L2.5,9 L0,5 L-2.5,9 Z"/><path d="M-20,0 L-9,2.5 L-5,0 L-9,-2.5 Z"/><path d="M20,0 L9,2.5 L5,0 L9,-2.5 Z"/><circle r="2.5"/></g></svg>
+    <img src="https://raw.githubusercontent.com/arvind-iy/solis-luxe-landing/main/logos/solis%20main%20logo%20only%20motif.png" alt="Solis motif" class="sa-ft-motif">
     <p>Singapore · March 2026</p>
   </div>
 
