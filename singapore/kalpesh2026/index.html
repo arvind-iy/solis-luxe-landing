@@ -284,75 +284,31 @@
       .sa-cr-row{grid-template-columns:35px 55px 1fr 60px 60px;font-size:9px;}
     }
 
-    /* ── PWA Install Banner ── */
-    .pwa-banner{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:#1A1510;
-      border-bottom:1px solid rgba(201,160,122,0.3);
-      padding:10px 16px;
-    }
-    .pwa-banner-inner{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      max-width:860px;
-      margin:0 auto;
-    }
-    .pwa-banner-icon{width:32px;height:32px;object-fit:contain;flex-shrink:0;}
-    .pwa-banner-text{flex:1;min-width:0;}
-    .pwa-banner-title{font-family:Georgia,serif;font-size:13px;color:#E8D5BE;}
-    .pwa-banner-sub{font-size:10px;color:#7A6A56;margin-top:1px;}
-    .pwa-banner-btn{
-      background:none;
-      border:1px solid rgba(201,160,122,0.6);
-      color:#C9A07A;
-      font-family:inherit;
-      font-size:9px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      padding:7px 16px;
-      cursor:pointer;
-      flex-shrink:0;
-      white-space:nowrap;
-    }
-    .pwa-banner-btn:active{background:rgba(201,160,122,0.1);}
-    .pwa-banner-close{
-      background:none;
-      border:none;
-      color:#5A4A38;
-      font-size:14px;
-      cursor:pointer;
-      padding:4px 6px;
-      flex-shrink:0;
-      line-height:1;
-    }
+    /* ── Install Banner ── */
+    .ib{position:sticky;top:0;z-index:9999;background:#1C1710;border-bottom:1px solid rgba(201,160,122,0.35);padding:11px 16px;}
+    .ib-inner{display:flex;align-items:center;gap:12px;max-width:860px;margin:0 auto;}
+    .ib-icon{width:32px;height:32px;object-fit:contain;flex-shrink:0;}
+    .ib-text{flex:1;min-width:0;}
+    .ib-title{font-family:Georgia,serif;font-size:13px;color:#E8D5BE;margin-bottom:2px;}
+    .ib-sub{font-size:11px;color:#7A6A56;line-height:1.5;}
+    .ib-close{background:none;border:1px solid rgba(201,160,122,0.25);color:#7A6A56;font-size:11px;cursor:pointer;padding:5px 10px;flex-shrink:0;}
   </style>
 
-  <script>
-    // Must be in <head> — beforeinstallprompt fires early
-    window.__pwaPrompt = null;
-    window.addEventListener('beforeinstallprompt', function(e) {
-      e.preventDefault();
-      window.__pwaPrompt = e;
-      // Try to show the banner (may not exist yet, will be retried on DOMContentLoaded)
-      var tryShow = function() {
-        var banner = document.getElementById('pwa-banner');
-        if (banner && !sessionStorage.getItem('pwa-dismissed')) {
-          banner.style.display = 'block';
-        }
-      };
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', tryShow);
-      } else {
-        tryShow();
-      }
-    });
-  </script>
+
 </head>
 <body>
 <div class="sa">
+
+  <div id="ib" class="ib" style="display:none">
+    <div class="ib-inner">
+      <img src="https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png" class="ib-icon" alt="">
+      <div class="ib-text">
+        <div class="ib-title">Save to Home Screen</div>
+        <div class="ib-sub" id="ib-sub"></div>
+      </div>
+      <button class="ib-close" id="ib-close">&#x2715;</button>
+    </div>
+  </div>
 
   <div class="sa-hdr">
     <div class="sa-logo">
@@ -813,63 +769,46 @@
   }
 </script>
   <script>
-    // ── Service Worker ──
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('/singapore/kalpesh2026/service-worker.js')
-          .then(function(reg) { console.log('Solis SW registered:', reg.scope); })
-          .catch(function(err) { console.log('SW error:', err); });
+          .then(function(r){ console.log('SW ok', r.scope); })
+          .catch(function(e){ console.warn('SW fail', e); });
       });
     }
 
-    // ── PWA UI wiring (prompt captured early in <head>) ──
-    var pwaBanner = document.getElementById('pwa-banner');
-    var iosBanner = document.getElementById('ios-banner');
-    var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    var ib = document.getElementById('ib');
+    var ibSub = document.getElementById('ib-sub');
+    var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    var android = /android/i.test(navigator.userAgent);
+    var standalone = window.matchMedia('(display-mode: standalone)').matches || !!navigator.standalone;
+    var gone = sessionStorage.getItem('ib-gone');
 
-    if (!isStandalone) {
-      // iOS — show manual instructions
-      if (isIOS && !sessionStorage.getItem('pwa-ios-dismissed')) {
-        setTimeout(function() { iosBanner.style.display = 'block'; }, 1500);
-      }
-      // Android — if prompt already captured in head script, show banner now
-      if (!isIOS && window.__pwaPrompt && !sessionStorage.getItem('pwa-dismissed')) {
-        pwaBanner.style.display = 'block';
-      }
+    if (!standalone && !gone && (ios || android)) {
+      ibSub.innerHTML = ios
+        ? 'Tap <b style="color:#C9A07A">Share &#8599;</b> then <b style="color:#C9A07A">Add to Home Screen</b>'
+        : 'Tap <b style="color:#C9A07A">&#8942; menu</b> then <b style="color:#C9A07A">Add to Home Screen</b>';
+      setTimeout(function(){ ib.style.display = 'block'; }, 800);
     }
 
-    // Install button
-    var installBtn = document.getElementById('pwa-install-btn');
-    if (installBtn) {
-      installBtn.addEventListener('click', function() {
-        pwaBanner.style.display = 'none';
-        if (window.__pwaPrompt) {
-          window.__pwaPrompt.prompt();
-          window.__pwaPrompt.userChoice.then(function(r) {
-            console.log('PWA install choice:', r.outcome);
-            window.__pwaPrompt = null;
-          });
-        }
-      });
-    }
-
-    // Dismiss buttons
-    var closeBtn = document.getElementById('pwa-banner-close');
-    if (closeBtn) closeBtn.addEventListener('click', function() {
-      pwaBanner.style.display = 'none';
-      sessionStorage.setItem('pwa-dismissed', '1');
-    });
-    var iosClose = document.getElementById('ios-banner-close');
-    if (iosClose) iosClose.addEventListener('click', function() {
-      iosBanner.style.display = 'none';
-      sessionStorage.setItem('pwa-ios-dismissed', '1');
+    document.getElementById('ib-close').addEventListener('click', function(){
+      ib.style.display = 'none';
+      sessionStorage.setItem('ib-gone', '1');
     });
 
-    window.addEventListener('appinstalled', function() {
-      if (pwaBanner) pwaBanner.style.display = 'none';
-      console.log('Solis PWA installed');
+    // Catch native Chrome prompt too if it fires
+    window.addEventListener('beforeinstallprompt', function(e){
+      e.preventDefault();
+      if (!standalone && !gone) {
+        ibSub.innerHTML = 'Tap <b style="color:#C9A07A">Install</b> below to save offline';
+        ib.style.display = 'block';
+        document.getElementById('ib-close').onclick = function(){
+          ib.style.display = 'none';
+          e.prompt();
+        };
+      }
     });
+    window.addEventListener('appinstalled', function(){ ib.style.display = 'none'; });
   </script>
 </body>
 </html>
