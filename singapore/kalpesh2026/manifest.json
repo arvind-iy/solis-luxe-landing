@@ -11,15 +11,15 @@
   "icons": [
     {
       "src": "https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png",
-      "sizes": "192x192",
+      "sizes": "any",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png",
-      "sizes": "512x512",
+      "sizes": "any",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }
