@@ -1,0 +1,25 @@
+{
+  "name": "Solis — Singapore 2026",
+  "short_name": "Solis SG",
+  "description": "A Journey Curated for Kalpesh Gala & Family — Singapore March 2026",
+  "start_url": "/singapore/kalpesh2026/",
+  "scope": "/singapore/kalpesh2026/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0D0B08",
+  "theme_color": "#0D0B08",
+  "icons": [
+    {
+      "src": "https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
