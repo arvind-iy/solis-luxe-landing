@@ -329,6 +329,27 @@
       line-height:1;
     }
   </style>
+
+  <script>
+    // Must be in <head> — beforeinstallprompt fires early
+    window.__pwaPrompt = null;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      window.__pwaPrompt = e;
+      // Try to show the banner (may not exist yet, will be retried on DOMContentLoaded)
+      var tryShow = function() {
+        var banner = document.getElementById('pwa-banner');
+        if (banner && !sessionStorage.getItem('pwa-dismissed')) {
+          banner.style.display = 'block';
+        }
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', tryShow);
+      } else {
+        tryShow();
+      }
+    });
+  </script>
 </head>
 <body>
 <div class="sa">
@@ -794,70 +815,60 @@
   <script>
     // ── Service Worker ──
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
+      window.addEventListener('load', function() {
         navigator.serviceWorker.register('/singapore/kalpesh2026/service-worker.js')
-          .then(reg => console.log('Solis SW registered:', reg.scope))
-          .catch(err => console.log('SW error:', err));
+          .then(function(reg) { console.log('Solis SW registered:', reg.scope); })
+          .catch(function(err) { console.log('SW error:', err); });
       });
     }
 
-    // ── PWA Install Prompt ──
-    var deferredPrompt = null;
+    // ── PWA UI wiring (prompt captured early in <head>) ──
     var pwaBanner = document.getElementById('pwa-banner');
     var iosBanner = document.getElementById('ios-banner');
-
-    // Detect iOS
     var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    var isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
-    // Don't show banners if already installed
-    if (!isInStandaloneMode) {
-      if (isIOS) {
-        // Show iOS manual instructions after 2s
-        setTimeout(function() {
-          if (!sessionStorage.getItem('pwa-ios-dismissed')) {
-            iosBanner.style.display = 'block';
-          }
-        }, 2000);
-      } else {
-        // Android/Desktop — catch the beforeinstallprompt event
-        window.addEventListener('beforeinstallprompt', function(e) {
-          e.preventDefault();
-          deferredPrompt = e;
-          setTimeout(function() {
-            if (!sessionStorage.getItem('pwa-dismissed')) {
-              pwaBanner.style.display = 'block';
-            }
-          }, 1500);
-        });
+    if (!isStandalone) {
+      // iOS — show manual instructions
+      if (isIOS && !sessionStorage.getItem('pwa-ios-dismissed')) {
+        setTimeout(function() { iosBanner.style.display = 'block'; }, 1500);
+      }
+      // Android — if prompt already captured in head script, show banner now
+      if (!isIOS && window.__pwaPrompt && !sessionStorage.getItem('pwa-dismissed')) {
+        pwaBanner.style.display = 'block';
       }
     }
 
-    // Install button clicked
-    document.getElementById('pwa-install-btn').addEventListener('click', function() {
-      pwaBanner.style.display = 'none';
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(function(result) {
-          console.log('PWA install:', result.outcome);
-          deferredPrompt = null;
-        });
-      }
-    });
+    // Install button
+    var installBtn = document.getElementById('pwa-install-btn');
+    if (installBtn) {
+      installBtn.addEventListener('click', function() {
+        pwaBanner.style.display = 'none';
+        if (window.__pwaPrompt) {
+          window.__pwaPrompt.prompt();
+          window.__pwaPrompt.userChoice.then(function(r) {
+            console.log('PWA install choice:', r.outcome);
+            window.__pwaPrompt = null;
+          });
+        }
+      });
+    }
 
     // Dismiss buttons
-    document.getElementById('pwa-banner-close').addEventListener('click', function() {
+    var closeBtn = document.getElementById('pwa-banner-close');
+    if (closeBtn) closeBtn.addEventListener('click', function() {
       pwaBanner.style.display = 'none';
       sessionStorage.setItem('pwa-dismissed', '1');
     });
-    document.getElementById('ios-banner-close').addEventListener('click', function() {
+    var iosClose = document.getElementById('ios-banner-close');
+    if (iosClose) iosClose.addEventListener('click', function() {
       iosBanner.style.display = 'none';
       sessionStorage.setItem('pwa-ios-dismissed', '1');
     });
 
-    // Hide banner once installed
     window.addEventListener('appinstalled', function() {
-      pwaBanner.style.display = 'none';
+      if (pwaBanner) pwaBanner.style.display = 'none';
+      console.log('Solis PWA installed');
     });
   </script>
 </body>
