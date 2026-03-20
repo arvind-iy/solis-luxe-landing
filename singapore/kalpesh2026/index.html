@@ -291,7 +291,10 @@
     .ib-text{flex:1;min-width:0;}
     .ib-title{font-family:Georgia,serif;font-size:13px;color:#E8D5BE;margin-bottom:2px;}
     .ib-sub{font-size:11px;color:#7A6A56;line-height:1.5;}
-    .ib-close{background:none;border:1px solid rgba(201,160,122,0.25);color:#7A6A56;font-size:11px;cursor:pointer;padding:5px 10px;flex-shrink:0;}
+    .ib-install{background:none;border:1px solid rgba(201,160,122,0.6);color:#C9A07A;font-family:inherit;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;padding:7px 14px;flex-shrink:0;margin-right:6px;}
+    .ib-install:active{background:rgba(201,160,122,0.1);}
+    .ib-close{background:none;border:none;color:#5A4A38;font-size:16px;cursor:pointer;padding:4px 8px;flex-shrink:0;line-height:1;}
+    .ib-close:active{color:#C9A07A;}
   </style>
 
 
@@ -306,7 +309,8 @@
         <div class="ib-title">Save to Home Screen</div>
         <div class="ib-sub" id="ib-sub"></div>
       </div>
-      <button class="ib-close" id="ib-close">&#x2715;</button>
+      <button class="ib-install" id="ib-install" style="display:none">Install</button>
+      <button class="ib-close" id="ib-close" aria-label="Dismiss">&#x2715;</button>
     </div>
   </div>
 
@@ -791,23 +795,28 @@
       setTimeout(function(){ ib.style.display = 'block'; }, 800);
     }
 
+    // X always just dismisses — nothing else
     document.getElementById('ib-close').addEventListener('click', function(){
       ib.style.display = 'none';
       sessionStorage.setItem('ib-gone', '1');
     });
 
-    // Catch native Chrome prompt too if it fires
+    // If Chrome fires the native install prompt, show Install button
     window.addEventListener('beforeinstallprompt', function(e){
       e.preventDefault();
       if (!standalone && !gone) {
-        ibSub.innerHTML = 'Tap <b style="color:#C9A07A">Install</b> below to save offline';
+        var installBtn = document.getElementById('ib-install');
+        ibSub.innerHTML = 'Tap <b style="color:#C9A07A">Install</b> to save offline &amp; add to Home Screen';
+        installBtn.style.display = 'inline-block';
         ib.style.display = 'block';
-        document.getElementById('ib-close').onclick = function(){
+        installBtn.addEventListener('click', function(){
           ib.style.display = 'none';
           e.prompt();
-        };
+          e.userChoice.then(function(r){ console.log('PWA choice:', r.outcome); });
+        });
       }
     });
+
     window.addEventListener('appinstalled', function(){ ib.style.display = 'none'; });
   </script>
 </body>
