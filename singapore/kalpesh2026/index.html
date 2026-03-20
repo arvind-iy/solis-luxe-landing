@@ -283,6 +283,51 @@
     @media(max-width:400px){
       .sa-cr-row{grid-template-columns:35px 55px 1fr 60px 60px;font-size:9px;}
     }
+
+    /* ── PWA Install Banner ── */
+    .pwa-banner{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:#1A1510;
+      border-bottom:1px solid rgba(201,160,122,0.3);
+      padding:10px 16px;
+    }
+    .pwa-banner-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      max-width:860px;
+      margin:0 auto;
+    }
+    .pwa-banner-icon{width:32px;height:32px;object-fit:contain;flex-shrink:0;}
+    .pwa-banner-text{flex:1;min-width:0;}
+    .pwa-banner-title{font-family:Georgia,serif;font-size:13px;color:#E8D5BE;}
+    .pwa-banner-sub{font-size:10px;color:#7A6A56;margin-top:1px;}
+    .pwa-banner-btn{
+      background:none;
+      border:1px solid rgba(201,160,122,0.6);
+      color:#C9A07A;
+      font-family:inherit;
+      font-size:9px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      padding:7px 16px;
+      cursor:pointer;
+      flex-shrink:0;
+      white-space:nowrap;
+    }
+    .pwa-banner-btn:active{background:rgba(201,160,122,0.1);}
+    .pwa-banner-close{
+      background:none;
+      border:none;
+      color:#5A4A38;
+      font-size:14px;
+      cursor:pointer;
+      padding:4px 6px;
+      flex-shrink:0;
+      line-height:1;
+    }
   </style>
 </head>
 <body>
@@ -747,6 +792,7 @@
   }
 </script>
   <script>
+    // ── Service Worker ──
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/singapore/kalpesh2026/service-worker.js')
@@ -754,6 +800,65 @@
           .catch(err => console.log('SW error:', err));
       });
     }
+
+    // ── PWA Install Prompt ──
+    var deferredPrompt = null;
+    var pwaBanner = document.getElementById('pwa-banner');
+    var iosBanner = document.getElementById('ios-banner');
+
+    // Detect iOS
+    var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    var isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    // Don't show banners if already installed
+    if (!isInStandaloneMode) {
+      if (isIOS) {
+        // Show iOS manual instructions after 2s
+        setTimeout(function() {
+          if (!sessionStorage.getItem('pwa-ios-dismissed')) {
+            iosBanner.style.display = 'block';
+          }
+        }, 2000);
+      } else {
+        // Android/Desktop — catch the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', function(e) {
+          e.preventDefault();
+          deferredPrompt = e;
+          setTimeout(function() {
+            if (!sessionStorage.getItem('pwa-dismissed')) {
+              pwaBanner.style.display = 'block';
+            }
+          }, 1500);
+        });
+      }
+    }
+
+    // Install button clicked
+    document.getElementById('pwa-install-btn').addEventListener('click', function() {
+      pwaBanner.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function(result) {
+          console.log('PWA install:', result.outcome);
+          deferredPrompt = null;
+        });
+      }
+    });
+
+    // Dismiss buttons
+    document.getElementById('pwa-banner-close').addEventListener('click', function() {
+      pwaBanner.style.display = 'none';
+      sessionStorage.setItem('pwa-dismissed', '1');
+    });
+    document.getElementById('ios-banner-close').addEventListener('click', function() {
+      iosBanner.style.display = 'none';
+      sessionStorage.setItem('pwa-ios-dismissed', '1');
+    });
+
+    // Hide banner once installed
+    window.addEventListener('appinstalled', function() {
+      pwaBanner.style.display = 'none';
+    });
   </script>
 </body>
 </html>
