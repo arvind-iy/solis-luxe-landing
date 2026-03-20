@@ -254,6 +254,35 @@
       .sa-ttime{min-width:36px;font-size:7px;}
       .sa-log{padding:16px 12px;}
     }
+
+    /* ── Cruise section ── */
+    .sa-cruise-body{padding:32px 28px;max-width:860px;margin:0 auto;}
+    .sa-cruise-body h2{font-family:Georgia,serif;font-size:20px;font-weight:normal;color:#C9A07A;margin-bottom:6px;text-align:center;}
+    .sa-cruise-body>p{font-size:10px;color:#7A6A56;text-align:center;letter-spacing:1px;margin-bottom:28px;}
+    .sa-cruise-logo{width:120px;height:auto;display:block;margin:0 auto 18px;}
+    .sa-cr-block{margin-bottom:24px;}
+    .sa-cr-ttl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#C9A07A;padding-bottom:8px;border-bottom:1px solid rgba(201,160,122,0.2);margin-bottom:12px;}
+    .sa-cr-table{width:100%;border-collapse:collapse;}
+    .sa-cr-row{display:grid;grid-template-columns:50px 70px 1fr 90px 90px;gap:0;border-bottom:1px solid rgba(201,160,122,0.07);padding:7px 0;font-size:11px;color:#8A7A6A;align-items:center;}
+    .sa-cr-row.hdr{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#5A4A38;border-bottom:1px solid rgba(201,160,122,0.15);}
+    .sa-cr-row:last-child{border-bottom:none;}
+    .sa-cr-row div:nth-child(3){color:#C9A07A;}
+    .sa-cr-note{display:block;font-size:9px;color:#5A4A38;margin-top:2px;}
+    .sa-cr-fine{font-size:9px;color:#4A3A28;margin-top:8px;font-style:italic;}
+    .sa-cr-items{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .sa-cr-item{font-size:10px;color:#7A6A56;padding:5px 0 5px 12px;border-bottom:1px solid rgba(201,160,122,0.06);position:relative;}
+    .sa-cr-item:last-child{border-bottom:none;}
+    .sa-cr-item::before{content:'→';position:absolute;left:0;color:rgba(201,160,122,0.4);font-size:9px;line-height:1.8;}
+    .sa-cr-ports-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    @media(max-width:768px){
+      .sa-cruise-body{padding:20px 16px;}
+      .sa-cr-row{grid-template-columns:40px 60px 1fr 70px 70px;font-size:10px;}
+      .sa-cr-items{grid-template-columns:1fr;}
+      .sa-cr-ports-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:400px){
+      .sa-cr-row{grid-template-columns:35px 55px 1fr 60px 60px;font-size:9px;}
+    }
   </style>
 </head>
 <body>
@@ -513,120 +542,75 @@
 
   <!-- ═══════════════ CRUISE ═══════════════ -->
   <div id="seg-cruise" class="sa-seg-wrap">
-    <div class="sa-cruise-body">
-      <img src="https://solis.luxe/logos/Full%20Logo%20Flat.png" alt="Solis Curated Luxury" class="sa-cruise-logo">
-      <h2>Genting Dream</h2>
-      <p>3 Nights · 4 Days &nbsp;·&nbsp; Singapore → Penang → Melaka → Singapore<br>24 – 27 March 2026 &nbsp;·&nbsp; Marina Bay Cruise Centre</p>
+  <div class="sa-cruise-body">
+    <img src="https://solis.luxe/logos/Full%20Logo%20Flat.png" alt="Solis Curated Luxury" class="sa-cruise-logo">
+    <h2>Genting Dream</h2>
+    <p>3 Nights · Singapore → Penang → Melaka → Singapore</p>
 
-      <div class="sa-cr-section">Port Itinerary</div>
-      <div class="sa-cr-ports">
-        <div class="sa-cr-port">
-          <div class="sa-cr-day">Tue · 24 Mar</div>
-          <div class="sa-cr-port-name">Singapore</div>
-          <div class="sa-cr-port-time">Depart 1:00 PM</div>
-          <div class="sa-cr-port-note">Board at Marina Bay Cruise Centre, 61 Marina Coastal Drive</div>
+    <div class="sa-cr-block">
+      <div class="sa-cr-ttl">Voyage Schedule</div>
+      <div class="sa-cr-table">
+        <div class="sa-cr-row hdr">
+          <div>Day</div><div>Date</div><div>Port</div><div>Arrive</div><div>Depart</div>
         </div>
-        <div class="sa-cr-port-arrow">→</div>
-        <div class="sa-cr-port">
-          <div class="sa-cr-day">Wed · 25 Mar</div>
-          <div class="sa-cr-port-name">Penang</div>
-          <div class="sa-cr-port-time">10:00 AM – 7:00 PM</div>
-          <div class="sa-cr-port-note">George Town UNESCO Heritage · Street art · Hawker food capital of Malaysia</div>
+        <div class="sa-cr-row">
+          <div>Tue</div><div>24 Mar</div><div>Singapore <span class="sa-cr-note">Marina Bay Cruise Centre</span></div><div>—</div><div>1:00 PM</div>
         </div>
-        <div class="sa-cr-port-arrow">→</div>
-        <div class="sa-cr-port">
-          <div class="sa-cr-day">Thu · 26 Mar</div>
-          <div class="sa-cr-port-name">Melaka</div>
-          <div class="sa-cr-port-time">9:00 AM – 8:00 PM</div>
-          <div class="sa-cr-port-note">UNESCO Heritage city · Dutch Square · Jonker Street · 15-min walk from tender point</div>
+        <div class="sa-cr-row">
+          <div>Wed</div><div>25 Mar</div><div>Penang <span class="sa-cr-note">Swettenham Pier</span></div><div>11:00 AM</div><div>9:00 PM</div>
         </div>
-        <div class="sa-cr-port-arrow">→</div>
-        <div class="sa-cr-port">
-          <div class="sa-cr-day">Fri · 27 Mar</div>
-          <div class="sa-cr-port-name">Singapore</div>
-          <div class="sa-cr-port-time">Arrive 2:00 PM</div>
-          <div class="sa-cr-port-note">Disembark · Transfer to Shangri-La Rasa Sentosa</div>
+        <div class="sa-cr-row">
+          <div>Thu</div><div>26 Mar</div><div>Melaka <span class="sa-cr-note">Tender port</span></div><div>11:00 AM</div><div>9:00 PM</div>
+        </div>
+        <div class="sa-cr-row">
+          <div>Fri</div><div>27 Mar</div><div>Singapore <span class="sa-cr-note">Marina Bay Cruise Centre</span></div><div>2:00 PM</div><div>—</div>
         </div>
       </div>
-
-      <div class="sa-cr-section">Your Stateroom · Ocean View Balcony</div>
-      <div class="sa-cr-cabin">
-        <div class="sa-cr-cabin-col">
-          <div class="sa-cr-cabin-ttl">Cabin Features</div>
-          <div class="sa-cr-cabin-item">Private balcony with lounge chairs &amp; table</div>
-          <div class="sa-cr-cabin-item">Queen bed (convertible to twin singles)</div>
-          <div class="sa-cr-cabin-item">Sofa bed · Mini-fridge · Flat-screen TV</div>
-          <div class="sa-cr-cabin-item">Tea &amp; coffee facilities · In-room safe</div>
-          <div class="sa-cr-cabin-item">Bathrobe &amp; slippers · Daily housekeeping</div>
-          <div class="sa-cr-cabin-item">USB + power sockets both sides of bed</div>
-        </div>
-        <div class="sa-cr-cabin-col">
-          <div class="sa-cr-cabin-ttl">Balcony Class Perks</div>
-          <div class="sa-cr-cabin-item">Welcome drinks on embarkation (per pax)</div>
-          <div class="sa-cr-cabin-item">S$50 dining credits per cabin per night</div>
-          <div class="sa-cr-cabin-item">Discounts on retail &amp; onboard packages</div>
-          <div class="sa-cr-cabin-item">Priority boarding &amp; check-in</div>
-          <div class="sa-cr-cabin-item">Complimentary toiletries &amp; amenities</div>
-          <div class="sa-cr-cabin-item">Unobstructed ocean views from your balcony</div>
-        </div>
-      </div>
-
-      <div class="sa-cr-section">Onboard Experience</div>
-      <div class="sa-cruise-grid">
-        <div class="sa-cruise-card">
-          <div class="sa-cc-ttl">Dining</div>
-          <div class="sa-cc-item">The Lido — halal-certified main buffet, Deck 16</div>
-          <div class="sa-cc-item">Dream Dining — Chinese &amp; Western (included)</div>
-          <div class="sa-cc-item">Umi Uma — Japanese teppanyaki (specialty)</div>
-          <div class="sa-cc-item">Outdoor Hot Pot Restaurant (specialty)</div>
-          <div class="sa-cc-item">Silk Road — Chinese fine dining</div>
-          <div class="sa-cc-item">Bubbles Champagne Bar · Johnnie Walker House</div>
-          <div class="sa-cc-item">35+ restaurants &amp; bars in total</div>
-        </div>
-        <div class="sa-cruise-card">
-          <div class="sa-cc-ttl">Activities &amp; Thrills</div>
-          <div class="sa-cc-item">6-slide Waterslide Park + kids' aqua zone</div>
-          <div class="sa-cc-item">35m Zipline &amp; High Elements Ropes Course</div>
-          <div class="sa-cc-item">Rock climbing wall</div>
-          <div class="sa-cc-item">Glow Bowling alley</div>
-          <div class="sa-cc-item">Mini golf · Jogging track</div>
-          <div class="sa-cc-item">Hot tubs &amp; main swimming pool</div>
-          <div class="sa-cc-item">Little Dreamers Kids' Club (ages 2–12)</div>
-        </div>
-        <div class="sa-cruise-card">
-          <div class="sa-cc-ttl">Entertainment &amp; Wellness</div>
-          <div class="sa-cc-item">Zodiac Theatre — 999-seat venue, nightly productions</div>
-          <div class="sa-cc-item">Cinema at Sea — 3D movies</div>
-          <div class="sa-cc-item">Zouk Nightclub &amp; Zouk Beach Club</div>
-          <div class="sa-cc-item">Genting Casino (international waters)</div>
-          <div class="sa-cc-item">Full luxury spa &amp; wellness centre</div>
-          <div class="sa-cc-item">Daily classes, game shows &amp; trivia nights</div>
-          <div class="sa-cc-item">Surau prayer room · Halal-friendly facilities</div>
-        </div>
-      </div>
-
-      <div class="sa-cr-section">Port Tips</div>
-      <div class="sa-cr-tips-grid">
-        <div class="sa-cr-tip-card">
-          <div class="sa-cr-tip-port">Penang</div>
-          <div class="sa-cr-tip-item">Ship docks at Swettenham Pier — George Town is a 10-min Grab ride</div>
-          <div class="sa-cr-tip-item">Must-try: char kway teow, Penang laksa &amp; assam laksa at Gurney Drive Hawker Centre</div>
-          <div class="sa-cr-tip-item">Armenian Street for street art, clan jetties and heritage shophouses</div>
-          <div class="sa-cr-tip-item">Book shore excursions onboard or arrange a Grab independently — 10 hrs is plenty of time</div>
-        </div>
-        <div class="sa-cr-tip-card">
-          <div class="sa-cr-tip-port">Melaka</div>
-          <div class="sa-cr-tip-item">Ship anchors offshore — short tender to the ICQS Complex on the Melaka River</div>
-          <div class="sa-cr-tip-item">15-min walk from the tender pier to Dutch Square and the red colonial buildings</div>
-          <div class="sa-cr-tip-item">Jonker Street for Nyonya cuisine, antiques and heritage souvenirs</div>
-          <div class="sa-cr-tip-item">Take the Melaka River Cruise for scenic views of murals and heritage buildings</div>
-        </div>
-      </div>
-
+      <div class="sa-cr-fine">Last boarding time: 12:00 PM on 24 Mar · All times are local destination time</div>
     </div>
+
+    <div class="sa-cr-block">
+      <div class="sa-cr-ttl">Your Stateroom · Balcony Stateroom (BSS)</div>
+      <div class="sa-cr-items">
+        <div class="sa-cr-item">Private balcony with lounge chairs &amp; table</div>
+        <div class="sa-cr-item">Queen bed or twin configuration</div>
+        <div class="sa-cr-item">Mini-fridge · flat-screen TV · in-room safe</div>
+        <div class="sa-cr-item">Bathrobe, slippers &amp; daily housekeeping</div>
+        <div class="sa-cr-item">Tea &amp; coffee facilities · USB sockets</div>
+        <div class="sa-cr-item">Unobstructed ocean views from your balcony</div>
+      </div>
+    </div>
+
+    <div class="sa-cr-ports-grid">
+      <div class="sa-cr-block">
+        <div class="sa-cr-ttl">Penang — What to Do</div>
+        <div class="sa-cr-items">
+          <div class="sa-cr-item">George Town UNESCO Heritage — Armenian St street art &amp; murals</div>
+          <div class="sa-cr-item">Gurney Drive Hawker Centre — char kway teow, Penang laksa, rojak</div>
+          <div class="sa-cr-item">Clan Jetties — floating Chinese fishing villages over the sea</div>
+          <div class="sa-cr-item">Cheong Fatt Tze Mansion (The Blue Mansion) — heritage tour</div>
+          <div class="sa-cr-item">Little India on Penang — Mahamariamman Temple area</div>
+          <div class="sa-cr-item">Grab from Swettenham Pier to George Town — ~10 mins, ~RM12</div>
+        </div>
+      </div>
+      <div class="sa-cr-block">
+        <div class="sa-cr-ttl">Melaka — What to Do</div>
+        <div class="sa-cr-items">
+          <div class="sa-cr-item">Dutch Square &amp; Stadthuys — iconic red colonial buildings</div>
+          <div class="sa-cr-item">Jonker Street — Nyonya food, antiques, batik &amp; souvenirs</div>
+          <div class="sa-cr-item">A Famosa Fort &amp; St. Paul's Hill — 16th-century Portuguese ruins</div>
+          <div class="sa-cr-item">Melaka River Cruise — heritage murals along the riverbanks</div>
+          <div class="sa-cr-item">Baba Nyonya Heritage Museum — Peranakan culture</div>
+          <div class="sa-cr-item">Tender from ship — short boat ride to ICQS Complex, 15-min walk to Dutch Square</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-    <!-- ═══════════════ SENTOSA ═══════════════ -->
+  </div>
+
+  <!-- ═══════════════ SENTOSA ═══════════════ -->
   <div id="seg-sentosa" class="sa-seg-wrap">
     <div class="sa-body">
       <div class="sa-daynav">
