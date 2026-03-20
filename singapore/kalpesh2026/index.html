@@ -8,39 +8,61 @@
   <meta property="og:description" content="A curated 10-night family itinerary across Singapore, the Genting Dream cruise and Sentosa.">
   <meta property="og:type" content="website">
   <title>Solis Curated Luxury — Singapore March 2026</title>
+  <link rel="manifest" href="/singapore/kalpesh2026/manifest.json">
+  <meta name="theme-color" content="#0D0B08">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Solis SG">
+  <link rel="apple-touch-icon" href="https://solis.luxe/logos/solis%20main%20logo%20only%20motif.png">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:#0D0B08;}
     .sa{background:#0D0B08;color:#F0E6D4;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;font-size:13px;line-height:1.6;min-height:100vh;}
+
+    /* ── Header ── */
     .sa-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid rgba(201,160,122,0.18);}
-    .sa-logo{display:flex;align-items:center;gap:14px;}
-    .sa-logo-txt h1{font-family:Georgia,serif;font-size:20px;font-weight:normal;color:#C9A07A;letter-spacing:9px;line-height:1;}
-    .sa-logo-txt p{font-size:8px;letter-spacing:4px;color:#7A6A56;margin-top:5px;}
-    .sa-badge{font-size:9px;letter-spacing:3px;color:#7A6A56;border:1px solid rgba(201,160,122,0.25);padding:6px 14px;}
+    .sa-logo{display:flex;align-items:center;}
+    .sa-logo-img{height:48px;width:auto;display:block;}
+    .sa-hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+    .sa-client{font-size:9px;letter-spacing:1.5px;color:#7A6A56;font-style:italic;}
+    .sa-client span{color:#C9A07A;font-style:normal;letter-spacing:2px;}
+    .sa-badge{font-size:9px;letter-spacing:3px;color:#7A6A56;border:1px solid rgba(201,160,122,0.25);padding:6px 14px;white-space:nowrap;}
+
+    /* ── Stats bar ── */
     .sa-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(201,160,122,0.12);}
     .sa-stat{padding:14px 22px;border-right:1px solid rgba(201,160,122,0.08);}
     .sa-stat:last-child{border-right:none;}
     .sa-slbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#5A4A38;margin-bottom:4px;}
     .sa-sval{font-family:Georgia,serif;font-size:13px;color:#C9A07A;}
-    .sa-segs{display:flex;padding:0 24px;border-bottom:1px solid rgba(201,160,122,0.12);overflow-x:auto;}
+
+    /* ── Segment tabs ── */
+    .sa-segs{display:flex;padding:0 24px;border-bottom:1px solid rgba(201,160,122,0.12);overflow-x:auto;-webkit-overflow-scrolling:touch;}
     .sa-sbtn{background:none;border:none;border-bottom:2px solid transparent;color:#5A4A38;padding:13px 22px;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:color 0.2s;white-space:nowrap;flex-shrink:0;}
     .sa-sbtn.on{color:#C9A07A;border-bottom-color:#C9A07A;}
-    .sa-body{display:grid;grid-template-columns:190px 1fr;}
+
+    /* ── Segment body layout ── */
+    .sa-body{display:grid;grid-template-columns:190px 1fr;min-height:400px;}
+    .sa-seg-wrap{display:none;}
+    .sa-seg-wrap.on{display:block;}
+
+    /* ── Day nav sidebar ── */
     .sa-daynav{border-right:1px solid rgba(201,160,122,0.1);padding:16px 0;}
     .sa-dnbtn{display:block;width:100%;background:none;border:none;border-left:2px solid transparent;text-align:left;padding:11px 18px;cursor:pointer;color:#5A4A38;font-family:inherit;}
     .sa-dnbtn.on{color:#C9A07A;border-left-color:#C9A07A;background:rgba(201,160,122,0.04);}
     .sa-dnbtn .dn{font-family:Georgia,serif;font-size:15px;display:block;margin-bottom:1px;}
     .sa-dnbtn .dd{font-size:8px;letter-spacing:1px;color:#4A3A28;}
     .sa-dnbtn.on .dd{color:#9A7B5A;}
+
+    /* ── Day panels ── */
     .sa-panel{display:none;padding:22px 26px;gap:22px;}
     .sa-panel.on{display:grid;grid-template-columns:1fr 300px;}
-    .sa-seg-wrap{display:none;}
-    .sa-seg-wrap.on{display:block;}
     .sa-day-hdr{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(201,160,122,0.12);}
     .sa-day-hdr h2{font-family:Georgia,serif;font-size:18px;font-weight:normal;color:#E8D5BE;}
     .sa-day-hdr p{font-size:9px;letter-spacing:2px;color:#7A6A56;margin-top:3px;text-transform:uppercase;}
     .sa-section-lbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#C9A07A;margin:16px 0 10px 0;padding-bottom:5px;border-bottom:1px solid rgba(201,160,122,0.15);}
+
+    /* ── Timeline items ── */
     .sa-tl-item{display:flex;gap:14px;padding-bottom:18px;position:relative;}
     .sa-tl-item:not(:last-child)::after{content:'';position:absolute;left:64px;top:20px;bottom:0;width:1px;background:rgba(201,160,122,0.1);}
     .sa-ttime{min-width:44px;font-size:8px;letter-spacing:1px;color:#5A4A38;text-align:right;padding-top:5px;flex-shrink:0;}
@@ -52,6 +74,8 @@
     .sa-opt-lbl{display:inline-block;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#7A6A56;border:1px solid rgba(100,90,70,0.4);padding:2px 7px;margin-left:8px;vertical-align:middle;}
     .sa-tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px;}
     .sa-tag{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#8A7A5A;border:1px solid rgba(201,160,122,0.15);padding:2px 8px;}
+
+    /* ── Right column cards ── */
     .sa-map-wrap{border:1px solid rgba(201,160,122,0.18);margin-bottom:14px;overflow:hidden;}
     .sa-map-wrap iframe{display:block;width:100%;height:210px;border:none;}
     .sa-mc-card{border:1px solid rgba(201,160,122,0.35);padding:14px;background:rgba(201,160,122,0.03);margin-bottom:14px;}
@@ -69,14 +93,29 @@
     .sa-hl-item{font-size:10px;color:#7A6A56;padding:3px 0 3px 10px;position:relative;border-bottom:1px solid rgba(201,160,122,0.06);}
     .sa-hl-item:last-child{border-bottom:none;}
     .sa-hl-item::before{content:'→';position:absolute;left:0;color:rgba(201,160,122,0.4);font-size:9px;line-height:1.8;}
+
+    /* ── Cruise section ── */
     .sa-cruise-body{padding:40px 30px;text-align:center;}
     .sa-cruise-body h2{font-family:Georgia,serif;font-size:22px;font-weight:normal;color:#C9A07A;margin-bottom:8px;}
     .sa-cruise-body p{font-size:11px;color:#7A6A56;max-width:400px;margin:0 auto 24px;}
+    .sa-cruise-logo{width:180px;height:auto;display:block;margin:0 auto 20px;}
     .sa-cruise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:0 auto;}
     .sa-cruise-card{border:1px solid rgba(201,160,122,0.15);padding:16px;text-align:left;}
     .sa-cc-ttl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#C9A07A;margin-bottom:8px;}
     .sa-cc-item{font-size:10px;color:#7A6A56;padding:3px 0;border-bottom:1px solid rgba(201,160,122,0.07);}
     .sa-cc-item:last-child{border-bottom:none;}
+
+    /* ── Cruise ports (if present) ── */
+    .sa-cr-ports{display:flex;align-items:flex-start;justify-content:center;flex-wrap:wrap;margin-bottom:8px;}
+    .sa-cr-port{flex:1;min-width:130px;text-align:center;padding:12px 8px;border:1px solid rgba(201,160,122,0.12);background:rgba(201,160,122,0.02);}
+    .sa-cr-cabin{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;text-align:left;max-width:700px;margin-left:auto;margin-right:auto;}
+    .sa-cr-cabin-item{font-size:10px;color:#7A6A56;padding:3px 0 3px 12px;border-bottom:1px solid rgba(201,160,122,0.06);position:relative;}
+    .sa-cr-cabin-item::before{content:'→';position:absolute;left:0;color:rgba(201,160,122,0.4);font-size:9px;line-height:1.8;}
+    .sa-cr-tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;max-width:700px;margin:0 auto;}
+    .sa-cr-tip-item{font-size:10px;color:#7A6A56;padding:4px 0 4px 12px;border-bottom:1px solid rgba(201,160,122,0.06);position:relative;}
+    .sa-cr-tip-item::before{content:'·';position:absolute;left:0;color:#C9A07A;font-size:14px;line-height:1.2;}
+
+    /* ── Logistics ── */
     .sa-log{border-top:1px solid rgba(201,160,122,0.15);padding:26px 28px;}
     .sa-log-ttl{font-family:Georgia,serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A07A;margin-bottom:18px;}
     .sa-log-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -85,55 +124,136 @@
     .sa-li{font-size:10px;color:#7A6A56;padding:4px 0;border-bottom:1px solid rgba(201,160,122,0.07);}
     .sa-li:last-child{border-bottom:none;}
     .sa-li strong{color:#A89070;font-weight:normal;}
-    .sa-ft{border-top:1px solid rgba(201,160,122,0.08);padding:12px 28px;display:flex;justify-content:space-between;align-items:center;}
-    .sa-ft p{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#3A2A1A;}
 
-    /* ── Mobile responsive ── */
-    @media(max-width:768px){
-      .sa-hdr{padding:14px 16px;flex-wrap:wrap;gap:10px;}
-      .sa-badge{display:none;}
-      .sa-logo-txt h1{font-size:16px;letter-spacing:6px;}
+    /* ── Footer ── */
+    .sa-ft{border-top:1px solid rgba(201,160,122,0.08);padding:16px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+    .sa-ft p{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#3A2A1A;}
+    .sa-ft-client{font-family:Georgia,serif;font-size:10px;color:#C9A07A;letter-spacing:2px;margin-top:4px;}
+    .sa-ft-motif{width:36px;height:36px;object-fit:contain;flex-shrink:0;}
+
+    /* ════════════════════════════════════
+       TABLET — max 900px
+    ════════════════════════════════════ */
+    @media(max-width:900px){
       .sa-stats{grid-template-columns:repeat(2,1fr);}
+      .sa-stat:nth-child(2){border-right:none;}
+      .sa-stat:nth-child(3){border-top:1px solid rgba(201,160,122,0.08);}
+      .sa-stat:nth-child(4){border-top:1px solid rgba(201,160,122,0.08);border-right:none;}
+      .sa-log-grid{grid-template-columns:repeat(2,1fr);}
+      .sa-cruise-grid{grid-template-columns:repeat(2,1fr);}
+    }
+
+    /* ════════════════════════════════════
+       MOBILE — max 768px
+    ════════════════════════════════════ */
+    @media(max-width:768px){
+      /* Header */
+      .sa-hdr{padding:12px 16px;flex-wrap:wrap;gap:8px;}
+      .sa-logo-img{height:36px;}
+      .sa-hdr-right{align-items:flex-start;}
+      .sa-badge{display:none;}
+      .sa-client{font-size:8px;}
+
+      /* Stats */
+      .sa-stats{grid-template-columns:1fr 1fr;}
       .sa-stat{padding:10px 14px;}
       .sa-stat:nth-child(2){border-right:none;}
-      .sa-segs{padding:0 12px;}
-      .sa-sbtn{padding:12px 14px;font-size:8px;letter-spacing:1.5px;}
+      .sa-stat:nth-child(3){border-top:1px solid rgba(201,160,122,0.08);}
+      .sa-stat:nth-child(4){border-top:1px solid rgba(201,160,122,0.08);border-right:none;}
+
+      /* Segment tabs */
+      .sa-segs{padding:0 8px;}
+      .sa-sbtn{padding:11px 12px;font-size:8px;letter-spacing:1.5px;}
+
+      /* Body layout — stack vertically */
       .sa-body{grid-template-columns:1fr;}
-      .sa-daynav{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid rgba(201,160,122,0.1);padding:0;gap:0;}
-      .sa-dnbtn{border-left:none;border-bottom:2px solid transparent;padding:10px 14px;white-space:nowrap;flex-shrink:0;}
-      .sa-dnbtn.on{border-left:none;border-bottom-color:#C9A07A;background:rgba(201,160,122,0.04);}
-      .sa-dnbtn .dn{font-size:13px;}
-      .sa-panel.on{display:block;padding:16px;}
-      .sa-panel.on > div + div{margin-top:20px;}
-      .sa-map-wrap iframe{height:180px;}
-      .sa-cruise-grid{grid-template-columns:1fr;}
-      .sa-log-grid{grid-template-columns:1fr;}
-      .sa-log{padding:20px 16px;}
-      .sa-ft{padding:12px 16px;flex-direction:column;gap:6px;text-align:center;}
+
+      /* Day nav — horizontal scroll strip */
+      .sa-daynav{
+        display:flex;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        border-right:none;
+        border-bottom:1px solid rgba(201,160,122,0.1);
+        padding:0;
+        scrollbar-width:none;
+        width:100%;
+      }
+      .sa-daynav::-webkit-scrollbar{display:none;}
+      .sa-dnbtn{
+        width:auto;
+        border-left:none;
+        border-bottom:2px solid transparent;
+        padding:10px 14px;
+        white-space:nowrap;
+        flex-shrink:0;
+        min-width:0;
+        text-align:center;
+      }
+      .sa-dnbtn.on{
+        border-left:none;
+        border-bottom-color:#C9A07A;
+        background:rgba(201,160,122,0.04);
+      }
+      .sa-dnbtn .dn{font-size:12px;display:block;margin-right:0;margin-bottom:1px;}
+      .sa-dnbtn .dd{display:block;font-size:7px;letter-spacing:0.5px;}
+
+      /* Day panel — single column, map below content */
+      .sa-panel{padding:16px;}
+      .sa-panel.on{
+        display:flex;
+        flex-direction:column;
+        gap:0;
+      }
+      .sa-right{margin-top:24px;}
+
+      /* Map */
+      .sa-map-wrap iframe{height:200px;}
+
+      /* Timeline line position */
       .sa-tl-item:not(:last-child)::after{left:58px;}
-    }
-    @media(max-width:480px){
-      .sa-stats{grid-template-columns:1fr 1fr;}
-      .sa-stat:nth-child(3){border-right:1px solid rgba(201,160,122,0.08);}
-      .sa-stat:nth-child(4){border-right:none;}
-      .sa-day-hdr h2{font-size:15px;}
-    }
 
-    /* ── Real logo images ── */
-    .sa-logo-img{height:48px;width:auto;display:block;}
-    .sa-logo-txt{display:none;}
-    .sa-cruise-logo{width:180px;height:auto;display:block;margin:0 auto 20px;}
-    .sa-ft-motif{width:36px;height:36px;object-fit:contain;}
-    @media(max-width:768px){
-      .sa-logo-img{height:36px;}
+      /* Day header */
+      .sa-day-hdr h2{font-size:16px;}
+
+      /* Activity title */
+      .sa-act-ttl{font-size:13px;}
+
+      /* Cruise */
+      .sa-cruise-body{padding:24px 16px;}
       .sa-cruise-logo{width:140px;}
+      .sa-cruise-grid{grid-template-columns:1fr;}
+      .sa-cr-ports{flex-direction:column;align-items:stretch;}
+      .sa-cr-cabin,.sa-cr-tips-grid{grid-template-columns:1fr;}
+
+      /* Logistics */
+      .sa-log{padding:20px 16px;}
+      .sa-log-grid{grid-template-columns:1fr;}
+
+      /* Footer */
+      .sa-ft{padding:14px 16px;flex-wrap:wrap;gap:10px;}
+      .sa-ft-motif{width:28px;height:28px;}
     }
 
-    .sa-hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
-    .sa-client{font-size:9px;letter-spacing:1.5px;color:#7A6A56;font-style:italic;}
-    .sa-client span{color:#C9A07A;font-style:normal;letter-spacing:2px;}
-    .sa-ft-client{font-family:Georgia,serif;font-size:10px;color:#C9A07A;letter-spacing:2px;margin-top:4px;}
-    @media(max-width:768px){.sa-hdr-right{align-items:flex-start;}.sa-client{font-size:8px;}}
+    /* ════════════════════════════════════
+       SMALL PHONE — max 400px
+    ════════════════════════════════════ */
+    @media(max-width:400px){
+      .sa-hdr{padding:10px 12px;}
+      .sa-logo-img{height:30px;}
+      .sa-client{font-size:7px;letter-spacing:1px;}
+      .sa-stats{grid-template-columns:1fr 1fr;}
+      .sa-slbl{font-size:7px;}
+      .sa-sval{font-size:12px;}
+      .sa-segs{padding:0 4px;}
+      .sa-sbtn{padding:10px 10px;font-size:7px;letter-spacing:1px;}
+      .sa-panel{padding:12px;}
+      .sa-day-hdr h2{font-size:14px;}
+      .sa-act-ttl{font-size:12px;}
+      .sa-act-desc{font-size:10px;}
+      .sa-ttime{min-width:36px;font-size:7px;}
+      .sa-log{padding:16px 12px;}
+    }
   </style>
 </head>
 <body>
@@ -150,7 +270,7 @@
   </div>
 
   <div class="sa-stats">
-    <div class="sa-stat"><div class="sa-slbl">Travel Dates</div><div class="sa-sval">21 – 30 March 2026</div></div>
+    <div class="sa-stat"><div class="sa-slbl">Travel Dates</div><div class="sa-sval">21 – 30 March</div></div>
     <div class="sa-stat"><div class="sa-slbl">Total Nights</div><div class="sa-sval">9 Nights</div></div>
     <div class="sa-stat"><div class="sa-slbl">Party</div><div class="sa-sval">2 Adults · 2 Teens</div></div>
     <div class="sa-stat"><div class="sa-slbl">Segments</div><div class="sa-sval">Mainland · Cruise · Sentosa</div></div>
@@ -395,17 +515,118 @@
   <div id="seg-cruise" class="sa-seg-wrap">
     <div class="sa-cruise-body">
       <img src="https://solis.luxe/logos/Full%20Logo%20Flat.png" alt="Solis Curated Luxury" class="sa-cruise-logo">
-      <h2>Genting Dream Cruise</h2>
-      <p>24 – 27 March · 3 Nights at Sea · Marina Bay Cruise Centre → Open Waters</p>
-      <div class="sa-cruise-grid">
-        <div class="sa-cruise-card"><div class="sa-cc-ttl">Dining</div><div class="sa-cc-item">World-class international buffets</div><div class="sa-cc-item">Asian specialty restaurants</div><div class="sa-cc-item">À la carte fine dining</div><div class="sa-cc-item">24-hr room service</div></div>
-        <div class="sa-cruise-card"><div class="sa-cc-ttl">Teens' Activities</div><div class="sa-cc-item">Waterslides &amp; pool complex</div><div class="sa-cc-item">Go-kart track on deck</div><div class="sa-cc-item">Arcade &amp; gaming zone</div><div class="sa-cc-item">Live entertainment shows</div></div>
-        <div class="sa-cruise-card"><div class="sa-cc-ttl">Adults' Retreat</div><div class="sa-cc-item">Luxury spa &amp; wellness</div><div class="sa-cc-item">Casino (adults only)</div><div class="sa-cc-item">Sunset cocktail lounge</div><div class="sa-cc-item">Private balcony sea views</div></div>
+      <h2>Genting Dream</h2>
+      <p>3 Nights · 4 Days &nbsp;·&nbsp; Singapore → Penang → Melaka → Singapore<br>24 – 27 March 2026 &nbsp;·&nbsp; Marina Bay Cruise Centre</p>
+
+      <div class="sa-cr-section">Port Itinerary</div>
+      <div class="sa-cr-ports">
+        <div class="sa-cr-port">
+          <div class="sa-cr-day">Tue · 24 Mar</div>
+          <div class="sa-cr-port-name">Singapore</div>
+          <div class="sa-cr-port-time">Depart 1:00 PM</div>
+          <div class="sa-cr-port-note">Board at Marina Bay Cruise Centre, 61 Marina Coastal Drive</div>
+        </div>
+        <div class="sa-cr-port-arrow">→</div>
+        <div class="sa-cr-port">
+          <div class="sa-cr-day">Wed · 25 Mar</div>
+          <div class="sa-cr-port-name">Penang</div>
+          <div class="sa-cr-port-time">10:00 AM – 7:00 PM</div>
+          <div class="sa-cr-port-note">George Town UNESCO Heritage · Street art · Hawker food capital of Malaysia</div>
+        </div>
+        <div class="sa-cr-port-arrow">→</div>
+        <div class="sa-cr-port">
+          <div class="sa-cr-day">Thu · 26 Mar</div>
+          <div class="sa-cr-port-name">Melaka</div>
+          <div class="sa-cr-port-time">9:00 AM – 8:00 PM</div>
+          <div class="sa-cr-port-note">UNESCO Heritage city · Dutch Square · Jonker Street · 15-min walk from tender point</div>
+        </div>
+        <div class="sa-cr-port-arrow">→</div>
+        <div class="sa-cr-port">
+          <div class="sa-cr-day">Fri · 27 Mar</div>
+          <div class="sa-cr-port-name">Singapore</div>
+          <div class="sa-cr-port-time">Arrive 2:00 PM</div>
+          <div class="sa-cr-port-note">Disembark · Transfer to Shangri-La Rasa Sentosa</div>
+        </div>
       </div>
+
+      <div class="sa-cr-section">Your Stateroom · Ocean View Balcony</div>
+      <div class="sa-cr-cabin">
+        <div class="sa-cr-cabin-col">
+          <div class="sa-cr-cabin-ttl">Cabin Features</div>
+          <div class="sa-cr-cabin-item">Private balcony with lounge chairs &amp; table</div>
+          <div class="sa-cr-cabin-item">Queen bed (convertible to twin singles)</div>
+          <div class="sa-cr-cabin-item">Sofa bed · Mini-fridge · Flat-screen TV</div>
+          <div class="sa-cr-cabin-item">Tea &amp; coffee facilities · In-room safe</div>
+          <div class="sa-cr-cabin-item">Bathrobe &amp; slippers · Daily housekeeping</div>
+          <div class="sa-cr-cabin-item">USB + power sockets both sides of bed</div>
+        </div>
+        <div class="sa-cr-cabin-col">
+          <div class="sa-cr-cabin-ttl">Balcony Class Perks</div>
+          <div class="sa-cr-cabin-item">Welcome drinks on embarkation (per pax)</div>
+          <div class="sa-cr-cabin-item">S$50 dining credits per cabin per night</div>
+          <div class="sa-cr-cabin-item">Discounts on retail &amp; onboard packages</div>
+          <div class="sa-cr-cabin-item">Priority boarding &amp; check-in</div>
+          <div class="sa-cr-cabin-item">Complimentary toiletries &amp; amenities</div>
+          <div class="sa-cr-cabin-item">Unobstructed ocean views from your balcony</div>
+        </div>
+      </div>
+
+      <div class="sa-cr-section">Onboard Experience</div>
+      <div class="sa-cruise-grid">
+        <div class="sa-cruise-card">
+          <div class="sa-cc-ttl">Dining</div>
+          <div class="sa-cc-item">The Lido — halal-certified main buffet, Deck 16</div>
+          <div class="sa-cc-item">Dream Dining — Chinese &amp; Western (included)</div>
+          <div class="sa-cc-item">Umi Uma — Japanese teppanyaki (specialty)</div>
+          <div class="sa-cc-item">Outdoor Hot Pot Restaurant (specialty)</div>
+          <div class="sa-cc-item">Silk Road — Chinese fine dining</div>
+          <div class="sa-cc-item">Bubbles Champagne Bar · Johnnie Walker House</div>
+          <div class="sa-cc-item">35+ restaurants &amp; bars in total</div>
+        </div>
+        <div class="sa-cruise-card">
+          <div class="sa-cc-ttl">Activities &amp; Thrills</div>
+          <div class="sa-cc-item">6-slide Waterslide Park + kids' aqua zone</div>
+          <div class="sa-cc-item">35m Zipline &amp; High Elements Ropes Course</div>
+          <div class="sa-cc-item">Rock climbing wall</div>
+          <div class="sa-cc-item">Glow Bowling alley</div>
+          <div class="sa-cc-item">Mini golf · Jogging track</div>
+          <div class="sa-cc-item">Hot tubs &amp; main swimming pool</div>
+          <div class="sa-cc-item">Little Dreamers Kids' Club (ages 2–12)</div>
+        </div>
+        <div class="sa-cruise-card">
+          <div class="sa-cc-ttl">Entertainment &amp; Wellness</div>
+          <div class="sa-cc-item">Zodiac Theatre — 999-seat venue, nightly productions</div>
+          <div class="sa-cc-item">Cinema at Sea — 3D movies</div>
+          <div class="sa-cc-item">Zouk Nightclub &amp; Zouk Beach Club</div>
+          <div class="sa-cc-item">Genting Casino (international waters)</div>
+          <div class="sa-cc-item">Full luxury spa &amp; wellness centre</div>
+          <div class="sa-cc-item">Daily classes, game shows &amp; trivia nights</div>
+          <div class="sa-cc-item">Surau prayer room · Halal-friendly facilities</div>
+        </div>
+      </div>
+
+      <div class="sa-cr-section">Port Tips</div>
+      <div class="sa-cr-tips-grid">
+        <div class="sa-cr-tip-card">
+          <div class="sa-cr-tip-port">Penang</div>
+          <div class="sa-cr-tip-item">Ship docks at Swettenham Pier — George Town is a 10-min Grab ride</div>
+          <div class="sa-cr-tip-item">Must-try: char kway teow, Penang laksa &amp; assam laksa at Gurney Drive Hawker Centre</div>
+          <div class="sa-cr-tip-item">Armenian Street for street art, clan jetties and heritage shophouses</div>
+          <div class="sa-cr-tip-item">Book shore excursions onboard or arrange a Grab independently — 10 hrs is plenty of time</div>
+        </div>
+        <div class="sa-cr-tip-card">
+          <div class="sa-cr-tip-port">Melaka</div>
+          <div class="sa-cr-tip-item">Ship anchors offshore — short tender to the ICQS Complex on the Melaka River</div>
+          <div class="sa-cr-tip-item">15-min walk from the tender pier to Dutch Square and the red colonial buildings</div>
+          <div class="sa-cr-tip-item">Jonker Street for Nyonya cuisine, antiques and heritage souvenirs</div>
+          <div class="sa-cr-tip-item">Take the Melaka River Cruise for scenic views of murals and heritage buildings</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ═══════════════ SENTOSA ═══════════════ -->
+    <!-- ═══════════════ SENTOSA ═══════════════ -->
   <div id="seg-sentosa" class="sa-seg-wrap">
     <div class="sa-body">
       <div class="sa-daynav">
@@ -492,7 +713,8 @@
       <div class="sa-lc">
         <div class="sa-lc-ttl">Pre-Book These</div>
         <div class="sa-li">Ce La Vi Dinner (Day 2) — book weeks ahead</div>
-        <div class="sa-li">Universal Studios — Express Pass</div>
+        <div class="sa-li">Jumbo Seafood Clarke Quay (Day 3) — book ahead</div>
+        <div class="sa-li">Universal Studios — Klook saves ~S$10–15/pax</div>
         <div class="sa-li">Adventure Cove Waterpark — online is cheaper</div>
         <div class="sa-li">Wings of Time — book day before minimum</div>
         <div class="sa-li">Gardens by the Bay domes — combo ticket at gate</div>
@@ -540,5 +762,14 @@
     }
   }
 </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/singapore/kalpesh2026/service-worker.js')
+          .then(reg => console.log('Solis SW registered:', reg.scope))
+          .catch(err => console.log('SW error:', err));
+      });
+    }
+  </script>
 </body>
 </html>
